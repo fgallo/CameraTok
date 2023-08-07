@@ -10,6 +10,7 @@
 		4F2821652A818DA5007561A9 /* CameraTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F28215C2A818DA5007561A9 /* CameraTok.framework */; };
 		4F28216A2A818DA5007561A9 /* CameraTokTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821692A818DA5007561A9 /* CameraTokTests.swift */; };
 		4F2821762A8190B4007561A9 /* VideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821752A8190B4007561A9 /* VideoItem.swift */; };
+		4F2821782A819333007561A9 /* VideoGalleryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821772A819333007561A9 /* VideoGalleryLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		4F2821642A818DA5007561A9 /* CameraTokTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTokTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2821692A818DA5007561A9 /* CameraTokTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTokTests.swift; sourceTree = "<group>"; };
 		4F2821752A8190B4007561A9 /* VideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItem.swift; sourceTree = "<group>"; };
+		4F2821772A819333007561A9 /* VideoGalleryLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				4F2821752A8190B4007561A9 /* VideoItem.swift */,
+				4F2821772A819333007561A9 /* VideoGalleryLoader.swift */,
 			);
 			path = "Video Gallery Feature";
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F2821762A8190B4007561A9 /* VideoItem.swift in Sources */,
+				4F2821782A819333007561A9 /* VideoGalleryLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
