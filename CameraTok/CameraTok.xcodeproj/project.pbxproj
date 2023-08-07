@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F2821652A818DA5007561A9 /* CameraTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F28215C2A818DA5007561A9 /* CameraTok.framework */; };
 		4F28216A2A818DA5007561A9 /* CameraTokTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821692A818DA5007561A9 /* CameraTokTests.swift */; };
-		4F28216B2A818DA5007561A9 /* CameraTok.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F28215F2A818DA5007561A9 /* CameraTok.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F2821762A8190B4007561A9 /* VideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821752A8190B4007561A9 /* VideoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,9 +24,9 @@
 
 /* Begin PBXFileReference section */
 		4F28215C2A818DA5007561A9 /* CameraTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CameraTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F28215F2A818DA5007561A9 /* CameraTok.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraTok.h; sourceTree = "<group>"; };
 		4F2821642A818DA5007561A9 /* CameraTokTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTokTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2821692A818DA5007561A9 /* CameraTokTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTokTests.swift; sourceTree = "<group>"; };
+		4F2821752A8190B4007561A9 /* VideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 		4F28215E2A818DA5007561A9 /* CameraTok */ = {
 			isa = PBXGroup;
 			children = (
-				4F28215F2A818DA5007561A9 /* CameraTok.h */,
+				4F2821742A81904F007561A9 /* Video Gallery Feature */,
 			);
 			path = CameraTok;
 			sourceTree = "<group>";
@@ -82,6 +82,14 @@
 			path = CameraTokTests;
 			sourceTree = "<group>";
 		};
+		4F2821742A81904F007561A9 /* Video Gallery Feature */ = {
+			isa = PBXGroup;
+			children = (
+				4F2821752A8190B4007561A9 /* VideoItem.swift */,
+			);
+			path = "Video Gallery Feature";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -89,7 +97,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F28216B2A818DA5007561A9 /* CameraTok.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +151,7 @@
 				TargetAttributes = {
 					4F28215B2A818DA5007561A9 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					4F2821632A818DA5007561A9 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -191,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2821762A8190B4007561A9 /* VideoItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +344,7 @@
 		4F28216F2A818DA5007561A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -359,6 +369,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -366,6 +377,7 @@
 		4F2821702A818DA5007561A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -397,6 +409,7 @@
 		4F2821722A818DA5007561A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TF59LXWJ93;
@@ -412,6 +425,7 @@
 		4F2821732A818DA5007561A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TF59LXWJ93;
