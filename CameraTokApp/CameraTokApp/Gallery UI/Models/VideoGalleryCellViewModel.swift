@@ -31,23 +31,12 @@ class VideoGalleryCellViewModel<Image>: ObservableObject {
         }
     }
     
-    func secondsToHoursMinutesSeconds(_ duration: Double) -> String {
-        let date = Date()
-        let cal = Calendar(identifier: .gregorian)
-        let start = cal.startOfDay(for: date)
-
-        // add your duration
-        let newDate = start.addingTimeInterval(duration)
-
-        // create a DateFormatter
-        let formatter = DateFormatter()
-
-        // set the format to minutes:seconds (leading zero-padded)
-        formatter.dateFormat = "mm:ss"
-
-        let resultString = formatter.string(from: newDate)
-
-        return resultString
+    func secondsToHoursMinutesSeconds(_ timeInterval: TimeInterval) -> String {
+        let totalSeconds = Int(timeInterval)
+        let hours = totalSeconds / 3600
+        let minutes = (totalSeconds % 3600) / 60
+        let seconds = (totalSeconds % 3600) % 60
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
 }
 
