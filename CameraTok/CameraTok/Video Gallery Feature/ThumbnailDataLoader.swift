@@ -7,5 +7,5 @@ import Foundation
 public protocol ThumbnailDataLoader {
     typealias Result = Swift.Result<Data, Error>
     
-    func loadThumbnailData(from videoId: String, completion: @escaping (Result) -> Void)
+    func loadThumbnailData(from videoId: String, withSize size: CGSize, completion: @escaping (Result) -> Void)
 }
