@@ -4,7 +4,7 @@
 
 import Foundation
 
-protocol VideoGalleryLoader {
+public protocol VideoGalleryLoader {
     typealias Result = Swift.Result<[VideoItem], Error>
     
     func load(with startDate: Date, completion: @escaping (Result) -> Void)

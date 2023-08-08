@@ -4,8 +4,8 @@
 
 import Foundation
 
-struct VideoItem {
+public struct VideoItem: Equatable {
     let id: String
-    let duration: String
+    let duration: Double
     let liked: Bool
 }
