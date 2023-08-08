@@ -10,3 +10,8 @@ public protocol VideoLibrary {
     func requestAuthorization(completion: @escaping (Bool) -> Void)
     func fetchVideoAssets(startDate: Date) -> [PHAsset]
 }
+
+public protocol VideoDataLibrary {
+    func fetchVideoAsset(id: String) -> PHAsset
+    func getThumbnailDataFromAsset(_ asset: PHAsset, size: CGSize, completion: @escaping (Data?) -> Void)
+}
