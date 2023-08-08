@@ -10,18 +10,20 @@ struct VideoGalleryContainerView: View {
     
     var body: some View {
         VideoGalleryView(
-            startDate: $viewModel.startDate,
             state: viewModel.state,
             makeVideoGalleryCell: makeVideoGalleryCell
         )
         .onAppear {
             viewModel.loadGallery()
         }
+        .navigationTitle("CameraTok")
+        .toolbar {
+            DatePicker("", selection: $viewModel.startDate, displayedComponents: .date)
+        }
     }
 }
 
 struct VideoGalleryView: View {
-    @Binding var startDate: Date
     let state: VideoGalleryViewModel.State
     let makeVideoGalleryCell: (Int, CGSize) -> VideoGalleryContainerCell?
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 2), count: 3)
@@ -54,15 +56,12 @@ struct VideoGalleryView: View {
                 Text("\(error.domain)")
             }
         }
-        
-        DatePicker("Start Date", selection: $startDate)
     }
 }
 
 struct VideoGalleryView_Previews: PreviewProvider {
     static var previews: some View {
         VideoGalleryView(
-            startDate: .constant(Date()),
             state: .loading,
             makeVideoGalleryCell: { _, _ in nil }
         )

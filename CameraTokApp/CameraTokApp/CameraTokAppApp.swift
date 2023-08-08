@@ -9,14 +9,26 @@ import CameraTok
 struct CameraTokAppApp: App {
     var body: some Scene {
         WindowGroup {
-            let videoLibrary = PhotoKitVideoLibrary()
-            let videoDataLibrary = PhotoKitVideoDataLibrary()
-            let videoGalleryLoader = LocalVideoGalleryLoader(videoLibrary: videoLibrary)
-            let imageDataLoader = LocalThumbnailDataLoader(videoLibrary: videoLibrary, videoDataLibrary: videoDataLibrary)
-            
-            GalleryUIComposer.galleryComposedWith(videoGalleryLoader: videoGalleryLoader, imageDataLoader: imageDataLoader) {
-                
+            NavigationStack {
+                GalleryUIComposer.galleryComposedWith(
+                    videoGalleryLoader: makeVidelGalleryLoader(),
+                    imageDataLoader: makeThumbnailDataLoader(),
+                    selection: {}
+                )
             }
         }
+    }
+}
+
+extension CameraTokAppApp {
+    func makeVidelGalleryLoader() -> VideoGalleryLoader {
+        let videoLibrary = PhotoKitVideoLibrary()
+        return LocalVideoGalleryLoader(videoLibrary: videoLibrary)
+    }
+    
+    func makeThumbnailDataLoader() -> ThumbnailDataLoader {
+        let videoLibrary = PhotoKitVideoLibrary()
+        let videoDataLibrary = PhotoKitVideoDataLibrary()
+        return LocalThumbnailDataLoader(videoLibrary: videoLibrary, videoDataLibrary: videoDataLibrary)
     }
 }
