@@ -6,7 +6,7 @@ import SwiftUI
 
 struct VideoGalleryContainerView: View {
     @StateObject var viewModel: VideoGalleryViewModel
-    let makeVideoGalleryCell: (Int, Double) -> VideoGalleryContainerCell?
+    let makeVideoGalleryCell: (Int, CGSize) -> VideoGalleryContainerCell?
     
     var body: some View {
         VideoGalleryView(
@@ -23,7 +23,7 @@ struct VideoGalleryContainerView: View {
 struct VideoGalleryView: View {
     @Binding var startDate: Date
     let state: VideoGalleryViewModel.State
-    let makeVideoGalleryCell: (Int, Double) -> VideoGalleryContainerCell?
+    let makeVideoGalleryCell: (Int, CGSize) -> VideoGalleryContainerCell?
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 2), count: 3)
     
     var body: some View {
@@ -41,10 +41,11 @@ struct VideoGalleryView: View {
                     LazyVGrid(columns: columns, spacing: 2) {
                         ForEach(items.indices, id: \.self) { index in
                             GeometryReader { geo in
-                                makeVideoGalleryCell(index, geo.size.width)
+                                let size = CGSize(width: geo.size.width, height: geo.size.width * 2)
+                                makeVideoGalleryCell(index, size)
                             }
                             .cornerRadius(0)
-                            .aspectRatio(1, contentMode: .fit)
+                            .aspectRatio(0.5, contentMode: .fit)
                         }
                     }
                 }

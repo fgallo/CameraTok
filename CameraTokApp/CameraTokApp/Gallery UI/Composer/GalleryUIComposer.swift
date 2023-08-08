@@ -24,7 +24,7 @@ public final class GalleryUIComposer {
         return videoGalleryView
     }
     
-    private static func adaptModelToCell(videoGalleryViewModel: VideoGalleryViewModel, imageLoader: ThumbnailDataLoader) -> (Int, Double) -> VideoGalleryContainerCell? {
+    private static func adaptModelToCell(videoGalleryViewModel: VideoGalleryViewModel, imageLoader: ThumbnailDataLoader) -> (Int, CGSize) -> VideoGalleryContainerCell? {
         return { index, size in
             guard case .loaded(let items) = videoGalleryViewModel.state, index < items.count else {
                 return nil

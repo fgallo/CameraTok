@@ -6,23 +6,23 @@ import SwiftUI
 
 struct VideoGalleryContainerCell: View {
     @StateObject var viewModel: VideoGalleryCellViewModel<UIImage>
-    let size: Double
+    let size: CGSize
     
     var body: some View {
         VideoGalleryCell(
             state: viewModel.state,
             size: size,
-            onRetry: { viewModel.loadImageData(size: CGSize(width: size, height: size)) }
+            onRetry: { viewModel.loadImageData(size: size) }
         )
         .onAppear {
-            viewModel.loadImageData(size: CGSize(width: size, height: size))
+            viewModel.loadImageData(size: size)
         }
     }
 }
 
 struct VideoGalleryCell: View {
     var state: VideoGalleryCellViewModel<UIImage>.State
-    let size: Double
+    let size: CGSize
     var onRetry: () -> Void
     
     var body: some View {
@@ -51,13 +51,13 @@ struct VideoGalleryCell: View {
                 }
             }
         }
-        .frame(width: size, height: size)
+        .frame(width: size.width, height: size.height)
         .background(Color.gray.opacity(0.5))
     }
 }
 
 struct VideoGalleryCell_Previews: PreviewProvider {
     static var previews: some View {
-        VideoGalleryCell(state: .loading, size: 200, onRetry: {})
+        VideoGalleryCell(state: .loading, size: CGSize(width: 100, height: 200), onRetry: {})
     }
 }
