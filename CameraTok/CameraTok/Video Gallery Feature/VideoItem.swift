@@ -5,7 +5,13 @@
 import Foundation
 
 public struct VideoItem: Equatable {
-    let id: String
-    let duration: Double
-    let liked: Bool
+    public let id: String
+    public let duration: Double
+    public let liked: Bool
+    
+    public init(id: String, duration: Double, liked: Bool) {
+        self.id = id
+        self.duration = duration
+        self.liked = liked
+    }
 }
