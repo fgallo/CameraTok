@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		4F0736542A81D1DD00A82340 /* PhotoKitVideoDataLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoKitVideoDataLibrary.swift; sourceTree = "<group>"; };
+		4F0736862A81D65F00A82340 /* CameraTokUnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CameraTokUnitTests.xctestplan; sourceTree = "<group>"; };
 		4F28215C2A818DA5007561A9 /* CameraTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CameraTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2821642A818DA5007561A9 /* CameraTokTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTokTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2821752A8190B4007561A9 /* VideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItem.swift; sourceTree = "<group>"; };
@@ -62,9 +63,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F0736852A81D64200A82340 /* TestPlans */ = {
+			isa = PBXGroup;
+			children = (
+				4F0736862A81D65F00A82340 /* CameraTokUnitTests.xctestplan */,
+			);
+			path = TestPlans;
+			sourceTree = "<group>";
+		};
 		4F2821522A818DA5007561A9 = {
 			isa = PBXGroup;
 			children = (
+				4F0736852A81D64200A82340 /* TestPlans */,
 				4F28215E2A818DA5007561A9 /* CameraTok */,
 				4F2821682A818DA5007561A9 /* CameraTokTests */,
 				4F28215D2A818DA5007561A9 /* Products */,

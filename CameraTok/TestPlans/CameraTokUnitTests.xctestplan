@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "3E5A8F0D-7A7F-43DE-B097-E89048597DF7",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CameraTok.xcodeproj",
+        "identifier" : "4F2821632A818DA5007561A9",
+        "name" : "CameraTokTests"
+      }
+    }
+  ],
+  "version" : 1
+}
