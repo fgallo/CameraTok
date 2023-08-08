@@ -5,16 +5,16 @@
 import Foundation
 import Photos
 
-class LocalThumbnailDataLoader: ThumbnailDataLoader {
+public final class LocalThumbnailDataLoader: ThumbnailDataLoader {
     private let videoLibrary: VideoLibrary
     private let videoDataLibrary: VideoDataLibrary
     
-    init(videoLibrary: VideoLibrary, videoDataLibrary: VideoDataLibrary) {
+    public init(videoLibrary: VideoLibrary, videoDataLibrary: VideoDataLibrary) {
         self.videoLibrary = videoLibrary
         self.videoDataLibrary = videoDataLibrary
     }
     
-    func loadThumbnailData(from videoId: String, withSize size: CGSize, completion: @escaping (ThumbnailDataLoader.Result) -> Void) {
+    public func loadThumbnailData(from videoId: String, withSize size: CGSize, completion: @escaping (ThumbnailDataLoader.Result) -> Void) {
         guard videoLibrary.isPhotoAccessAuthorized() else {
             let error = NSError(domain: "Access to device gallery is not allowed.", code: 0)
             completion(.failure(error))
