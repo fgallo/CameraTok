@@ -17,6 +17,7 @@
 		4F2821812A81B488007561A9 /* VideoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821802A81B488007561A9 /* VideoLibrary.swift */; };
 		4F2821832A81C17B007561A9 /* ThumbnailDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821822A81C17B007561A9 /* ThumbnailDataLoader.swift */; };
 		4F2821852A81C206007561A9 /* LocalThumbnailDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821842A81C206007561A9 /* LocalThumbnailDataLoader.swift */; };
+		4FCE02F42A830AED00ED8A15 /* VideoDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE02F32A830AED00ED8A15 /* VideoDataLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		4F2821802A81B488007561A9 /* VideoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLibrary.swift; sourceTree = "<group>"; };
 		4F2821822A81C17B007561A9 /* ThumbnailDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailDataLoader.swift; sourceTree = "<group>"; };
 		4F2821842A81C206007561A9 /* LocalThumbnailDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalThumbnailDataLoader.swift; sourceTree = "<group>"; };
+		4FCE02F32A830AED00ED8A15 /* VideoDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				4F2821752A8190B4007561A9 /* VideoItem.swift */,
 				4F2821772A819333007561A9 /* VideoGalleryLoader.swift */,
 				4F2821822A81C17B007561A9 /* ThumbnailDataLoader.swift */,
+				4FCE02F32A830AED00ED8A15 /* VideoDataLoader.swift */,
 			);
 			path = "Video Gallery Feature";
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				4F2821762A8190B4007561A9 /* VideoItem.swift in Sources */,
 				4F0736552A81D1DD00A82340 /* PhotoKitVideoDataLibrary.swift in Sources */,
 				4F2821832A81C17B007561A9 /* ThumbnailDataLoader.swift in Sources */,
+				4FCE02F42A830AED00ED8A15 /* VideoDataLoader.swift in Sources */,
 				4F2821812A81B488007561A9 /* VideoLibrary.swift in Sources */,
 				4F28217F2A81B3C5007561A9 /* LocalVideoGalleryLoader.swift in Sources */,
 				4F28217C2A819CC6007561A9 /* PhotoKitVideoLibrary.swift in Sources */,
