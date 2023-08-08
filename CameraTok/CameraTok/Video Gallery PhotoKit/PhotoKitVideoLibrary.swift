@@ -5,22 +5,24 @@
 import Foundation
 import Photos
 
-final class PhotoKitVideoLibrary: VideoLibrary {
-    func isPhotoAccessAuthorized() -> Bool {
+public final class PhotoKitVideoLibrary: VideoLibrary {
+    public init() {}
+    
+    public func isPhotoAccessAuthorized() -> Bool {
         let status = PHPhotoLibrary.authorizationStatus(for: .readWrite)
         return status == .authorized || status == .limited
     }
     
-    func requestAuthorization(completion: @escaping (Bool) -> Void) {
+    public func requestAuthorization(completion: @escaping (Bool) -> Void) {
         PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
             let authorized = status == .authorized || status == .limited
             completion(authorized)
         }
     }
     
-    func fetchVideoAssets(startDate: Date) -> [PHAsset] {
+    public func fetchVideoAssets(startDate: Date) -> [PHAsset] {
         let fetchOptions = PHFetchOptions()
-        let predicate = NSPredicate(format: "mediaType = %d AND creationDate >= %@", PHAssetMediaType.video.rawValue, startDate as CVarArg)
+        let predicate = NSPredicate(format: "mediaType = %d AND creationDate <= %@", PHAssetMediaType.video.rawValue, startDate as CVarArg)
         fetchOptions.predicate = predicate
         
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
