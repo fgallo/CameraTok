@@ -25,7 +25,7 @@ public final class PhotoKitVideoLibrary: VideoLibrary {
         let predicate = NSPredicate(format: "mediaType = %d AND creationDate <= %@", PHAssetMediaType.video.rawValue, startDate as CVarArg)
         fetchOptions.predicate = predicate
         
-        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
         fetchOptions.sortDescriptors = [sortDescriptor]
         fetchOptions.fetchLimit = 15
         
