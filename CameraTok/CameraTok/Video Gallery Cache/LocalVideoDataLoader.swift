@@ -22,14 +22,14 @@ public final class LocalVideoDataLoader: VideoDataLoader {
         
         let asset = videoDataLibrary.fetchVideoAsset(id: videoId)
         
-        videoDataLibrary.getVideoDataFromAsset(asset) { data in
-            guard let data = data else {
-                let error = NSError(domain: "It was not possible to retrieve video data from this asset.", code: 0)
+        videoDataLibrary.getVideoURLFromAsset(asset) { url in
+            guard let url = url else {
+                let error = NSError(domain: "It was not possible to retrieve video url from this asset.", code: 0)
                 completion(.failure(error))
                 return
             }
             
-            completion(.success(data))
+            completion(.success(url))
         }
     }
 }

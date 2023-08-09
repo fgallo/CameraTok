@@ -23,16 +23,11 @@ public final class PhotoKitVideoDataLibrary: VideoDataLibrary {
         }
     }
     
-    public func getVideoDataFromAsset(_ asset: PHAsset, completion: @escaping (Data?) -> Void) {
+    public func getVideoURLFromAsset(_ asset: PHAsset, completion: @escaping (URL?) -> Void) {
         let imageManager = PHCachingImageManager()
         imageManager.requestAVAsset(forVideo: asset, options: nil) { avAsset, audioMix, info in
-            guard let url = (avAsset as? AVURLAsset)?.url else {
-                completion(nil)
-                return
-            }
-            
-            let data = try? Data(contentsOf: url)
-            completion(data)
+            let url = (avAsset as? AVURLAsset)?.url
+            completion(url)
         }
     }
 }
