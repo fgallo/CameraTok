@@ -10,18 +10,32 @@ import CameraTok
 public final class FeedUIComposer {
     private init() {}
     
-    static func feedComposedWith(model: VideoItem,
-                                 videoDataLoader: VideoDataLoader) -> FeedContainerView {
+    static func feedComposedWith(feed: Feed,
+                                 videoLoader: VideoDataLoader) -> FeedView {
+        let feedViewModel = FeedViewModel(feed: feed)
+        let scrollViewModel = ScrollViewModel()
         
-        let feedViewModel = FeedViewModel(
-            model: model,
-            videoLoader: videoDataLoader
-        )
-        
-        let feedView = FeedContainerView(
-            viewModel: feedViewModel
+        let feedView = FeedView(
+            feedViewModel: feedViewModel,
+            scrollViewModel: scrollViewModel,
+            makeFeedCell: adaptModelToCell(
+                feedViewModel: feedViewModel,
+                videoLoader: videoLoader
+            )
         )
         
         return feedView
+    }
+    
+    private static func adaptModelToCell(feedViewModel: FeedViewModel, videoLoader: VideoDataLoader) -> (Int) -> FeedContainerCell? {
+        return { index in
+            guard index < feedViewModel.feed.videoItems.count else {
+                return nil
+            }
+            
+            let model = feedViewModel.feed.videoItems[index]
+            let feedCellViewModel = FeedCellViewModel(model: model, videoLoader: videoLoader)
+            return FeedContainerCell(viewModel: feedCellViewModel)
+        }
     }
 }
