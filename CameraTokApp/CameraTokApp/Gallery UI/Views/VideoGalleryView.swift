@@ -7,11 +7,13 @@ import SwiftUI
 struct VideoGalleryContainerView: View {
     @StateObject var viewModel: VideoGalleryViewModel
     let makeVideoGalleryCell: (Int, CGSize) -> VideoGalleryContainerCell?
+    let onModelSelection: (Int) -> Void
     
     var body: some View {
         VideoGalleryView(
             state: viewModel.state,
-            makeVideoGalleryCell: makeVideoGalleryCell
+            makeVideoGalleryCell: makeVideoGalleryCell,
+            onModelSelection: onModelSelection
         )
         .onAppear {
             viewModel.loadGallery()
@@ -26,6 +28,7 @@ struct VideoGalleryContainerView: View {
 struct VideoGalleryView: View {
     let state: VideoGalleryViewModel.State
     let makeVideoGalleryCell: (Int, CGSize) -> VideoGalleryContainerCell?
+    let onModelSelection: (Int) -> Void
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 2), count: 3)
     
     var body: some View {
@@ -42,12 +45,16 @@ struct VideoGalleryView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 2) {
                         ForEach(items.indices, id: \.self) { index in
-                            GeometryReader { geo in
-                                let size = CGSize(width: geo.size.width, height: geo.size.width * 2)
-                                makeVideoGalleryCell(index, size)
+                            Button {
+                                onModelSelection(index)
+                            } label: {
+                                GeometryReader { geo in
+                                    let size = CGSize(width: geo.size.width, height: geo.size.width * 2)
+                                    makeVideoGalleryCell(index, size)
+                                }
+                                .cornerRadius(0)
+                                .aspectRatio(0.5, contentMode: .fit)
                             }
-                            .cornerRadius(0)
-                            .aspectRatio(0.5, contentMode: .fit)
                         }
                     }
                 }
@@ -63,7 +70,8 @@ struct VideoGalleryView_Previews: PreviewProvider {
     static var previews: some View {
         VideoGalleryView(
             state: .loading,
-            makeVideoGalleryCell: { _, _ in nil }
+            makeVideoGalleryCell: { _, _ in nil },
+            onModelSelection: { _ in }
         )
     }
 }
