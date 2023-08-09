@@ -22,7 +22,7 @@ public final class PhotoKitVideoLibrary: VideoLibrary {
     
     public func fetchVideoAssets(startDate: Date) -> [PHAsset] {
         let fetchOptions = PHFetchOptions()
-        let predicate = NSPredicate(format: "mediaType = %d AND creationDate <= %@", PHAssetMediaType.video.rawValue, startDate as CVarArg)
+        let predicate = NSPredicate(format: "mediaType = %d AND creationDate < %@", PHAssetMediaType.video.rawValue, startDate as CVarArg)
         fetchOptions.predicate = predicate
         
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)

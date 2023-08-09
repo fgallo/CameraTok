@@ -27,7 +27,10 @@ class GalleryCellViewModel<Image>: ObservableObject {
             }
             
             let duration = TimeFormatter.formatSecondsToHMS(self.model.duration)
-            self.state = .loaded(image, duration)
+            
+            DispatchQueue.main.async {
+                self.state = .loaded(image, duration)
+            }
         }
     }
 }

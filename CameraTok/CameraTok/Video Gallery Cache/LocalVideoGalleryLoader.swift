@@ -27,7 +27,7 @@ public final class LocalVideoGalleryLoader: VideoGalleryLoader {
     
     private func fetchAssetsAndMapToModel(_ startDate: Date) -> [VideoItem] {
         let assets = videoLibrary.fetchVideoAssets(startDate: startDate)
-        let videoItems = assets.map { VideoItem(id: $0.localIdentifier, duration: $0.duration, liked: false) }
+        let videoItems = assets.map { VideoItem(id: $0.localIdentifier, duration: $0.duration, creationDate: $0.creationDate ?? Date()) }
         return videoItems
     }
 }

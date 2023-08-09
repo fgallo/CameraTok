@@ -29,8 +29,26 @@ class GalleryViewModel: ObservableObject {
         videoGalleryLoader.load(with: startDate) { result in
             switch result {
             case let .success(videoItems):
-                self.state = .loaded(videoItems)
-                
+                DispatchQueue.main.async {
+                    self.state = .loaded(videoItems)
+                }
+            case let .failure(error):
+                self.state = .error(error)
+            }
+        }
+    }
+    
+    func loadMore() {
+        guard case .loaded(let items) = state else {
+            return
+        }
+        
+        videoGalleryLoader.load(with: items.last?.creationDate ?? Date()) { result in
+            switch result {
+            case let .success(videoItems):
+                DispatchQueue.main.async {
+                    self.state = .loaded(items + videoItems)
+                }
             case let .failure(error):
                 self.state = .error(error)
             }

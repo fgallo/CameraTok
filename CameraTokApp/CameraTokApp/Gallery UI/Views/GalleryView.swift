@@ -13,7 +13,10 @@ struct GalleryContainerView: View {
         GalleryView(
             state: viewModel.state,
             makeVideoGalleryCell: makeVideoGalleryCell,
-            onModelSelection: onModelSelection
+            onModelSelection: onModelSelection,
+            loadMoreItems: {
+                viewModel.loadMore()
+            }
         )
         .onAppear {
             viewModel.loadGallery()
@@ -29,7 +32,10 @@ struct GalleryView: View {
     let state: GalleryViewModel.State
     let makeVideoGalleryCell: (Int, CGSize) -> GalleryContainerCell?
     let onModelSelection: (Int) -> Void
+    let loadMoreItems: () -> Void
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 2), count: 3)
+    
+    @State var loadingMore = false
     
     var body: some View {
         VStack {
@@ -54,6 +60,11 @@ struct GalleryView: View {
                                 }
                                 .cornerRadius(0)
                                 .aspectRatio(0.5, contentMode: .fit)
+                                .onAppear {
+                                    if index == items.count - 1 {
+                                        loadMoreItems()
+                                    }
+                                }
                             }
                         }
                     }
@@ -71,7 +82,8 @@ struct GalleryView_Previews: PreviewProvider {
         GalleryView(
             state: .loading,
             makeVideoGalleryCell: { _, _ in nil },
-            onModelSelection: { _ in }
+            onModelSelection: { _ in },
+            loadMoreItems: {}
         )
     }
 }

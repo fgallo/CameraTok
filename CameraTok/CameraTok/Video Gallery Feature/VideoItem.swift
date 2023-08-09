@@ -7,11 +7,11 @@ import Foundation
 public struct VideoItem: Hashable {
     public let id: String
     public let duration: Double
-    public let liked: Bool
+    public let creationDate: Date
     
-    public init(id: String, duration: Double, liked: Bool) {
+    public init(id: String, duration: Double, creationDate: Date) {
         self.id = id
         self.duration = duration
-        self.liked = liked
+        self.creationDate = creationDate
     }
 }
