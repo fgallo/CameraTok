@@ -13,7 +13,7 @@ public final class LocalVideoDataLoader: VideoDataLoader {
         self.videoDataLibrary = videoDataLibrary
     }
     
-    public func loadVideoData(from videoId: String, withSize size: CGSize, completion: @escaping (VideoDataLoader.Result) -> Void) {
+    public func loadVideoData(from videoId: String, completion: @escaping (VideoDataLoader.Result) -> Void) {
         guard videoLibrary.isPhotoAccessAuthorized() else {
             let error = NSError(domain: "Access to device gallery is not allowed.", code: 0)
             completion(.failure(error))
