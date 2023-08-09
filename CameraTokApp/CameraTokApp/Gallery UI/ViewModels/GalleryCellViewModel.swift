@@ -5,7 +5,7 @@
 import Foundation
 import CameraTok
 
-class VideoGalleryCellViewModel<Image>: ObservableObject {
+class GalleryCellViewModel<Image>: ObservableObject {
     private let model: VideoItem
     private let imageLoader: ThumbnailDataLoader
     private let imageTransformer: (Data) -> Image?
@@ -32,7 +32,7 @@ class VideoGalleryCellViewModel<Image>: ObservableObject {
     }
 }
 
-extension VideoGalleryCellViewModel {
+extension GalleryCellViewModel {
     enum State {
         case loading
         case loaded(_ image: Image, _ duration: String)

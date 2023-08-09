@@ -6,7 +6,7 @@ import Foundation
 import Combine
 import CameraTok
 
-class VideoGalleryViewModel: ObservableObject {
+class GalleryViewModel: ObservableObject {
     private let videoGalleryLoader: VideoGalleryLoader
     private var cancellables: Set<AnyCancellable> = []
     
@@ -38,7 +38,7 @@ class VideoGalleryViewModel: ObservableObject {
     }
 }
 
-extension VideoGalleryViewModel {
+extension GalleryViewModel {
     enum State {
         case loading
         case loaded(_ items: [VideoItem])

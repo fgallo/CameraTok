@@ -4,13 +4,13 @@
 
 import SwiftUI
 
-struct VideoGalleryContainerView: View {
-    @StateObject var viewModel: VideoGalleryViewModel
-    let makeVideoGalleryCell: (Int, CGSize) -> VideoGalleryContainerCell?
+struct GalleryContainerView: View {
+    @StateObject var viewModel: GalleryViewModel
+    let makeVideoGalleryCell: (Int, CGSize) -> GalleryContainerCell?
     let onModelSelection: (Int) -> Void
     
     var body: some View {
-        VideoGalleryView(
+        GalleryView(
             state: viewModel.state,
             makeVideoGalleryCell: makeVideoGalleryCell,
             onModelSelection: onModelSelection
@@ -25,9 +25,9 @@ struct VideoGalleryContainerView: View {
     }
 }
 
-struct VideoGalleryView: View {
-    let state: VideoGalleryViewModel.State
-    let makeVideoGalleryCell: (Int, CGSize) -> VideoGalleryContainerCell?
+struct GalleryView: View {
+    let state: GalleryViewModel.State
+    let makeVideoGalleryCell: (Int, CGSize) -> GalleryContainerCell?
     let onModelSelection: (Int) -> Void
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 2), count: 3)
     
@@ -66,9 +66,9 @@ struct VideoGalleryView: View {
     }
 }
 
-struct VideoGalleryView_Previews: PreviewProvider {
+struct GalleryView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoGalleryView(
+        GalleryView(
             state: .loading,
             makeVideoGalleryCell: { _, _ in nil },
             onModelSelection: { _ in }

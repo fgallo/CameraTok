@@ -10,13 +10,13 @@ public final class GalleryUIComposer {
     
     static func galleryComposedWith(videoGalleryLoader: VideoGalleryLoader,
                                     imageDataLoader: ThumbnailDataLoader,
-                                    selection: @escaping (Feed) -> Void) -> VideoGalleryContainerView {
+                                    selection: @escaping (Feed) -> Void) -> GalleryContainerView {
         
-        let videoGalleryViewModel = VideoGalleryViewModel(
+        let videoGalleryViewModel = GalleryViewModel(
             videoGalleryLoader: videoGalleryLoader
         )
         
-        let videoGalleryView = VideoGalleryContainerView(
+        let videoGalleryView = GalleryContainerView(
             viewModel: videoGalleryViewModel,
             makeVideoGalleryCell: adaptModelToCell(videoGalleryViewModel: videoGalleryViewModel, imageLoader: imageDataLoader),
             onModelSelection: { index in
@@ -31,15 +31,15 @@ public final class GalleryUIComposer {
         return videoGalleryView
     }
     
-    private static func adaptModelToCell(videoGalleryViewModel: VideoGalleryViewModel, imageLoader: ThumbnailDataLoader) -> (Int, CGSize) -> VideoGalleryContainerCell? {
+    private static func adaptModelToCell(videoGalleryViewModel: GalleryViewModel, imageLoader: ThumbnailDataLoader) -> (Int, CGSize) -> GalleryContainerCell? {
         return { index, size in
             guard case .loaded(let items) = videoGalleryViewModel.state, index < items.count else {
                 return nil
             }
             
             let model = items[index]
-            let videoGalleryCellViewModel = VideoGalleryCellViewModel(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init)
-            return VideoGalleryContainerCell(viewModel: videoGalleryCellViewModel, size: size)
+            let videoGalleryCellViewModel = GalleryCellViewModel(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init)
+            return GalleryContainerCell(viewModel: videoGalleryCellViewModel, size: size)
         }
     }
 }
