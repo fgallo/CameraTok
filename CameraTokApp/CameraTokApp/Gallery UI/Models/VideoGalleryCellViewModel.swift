@@ -26,17 +26,9 @@ class VideoGalleryCellViewModel<Image>: ObservableObject {
                 return
             }
             
-            let duration = self.secondsToHoursMinutesSeconds(self.model.duration)
+            let duration = TimeFormatter.formatSecondsToHMS(self.model.duration)
             self.state = .loaded(image, duration)
         }
-    }
-    
-    func secondsToHoursMinutesSeconds(_ timeInterval: TimeInterval) -> String {
-        let totalSeconds = Int(timeInterval)
-        let hours = totalSeconds / 3600
-        let minutes = (totalSeconds % 3600) / 60
-        let seconds = (totalSeconds % 3600) % 60
-        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
 }
 
