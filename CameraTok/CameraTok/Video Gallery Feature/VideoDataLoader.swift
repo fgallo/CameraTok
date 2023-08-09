@@ -5,7 +5,7 @@
 import Foundation
 
 public protocol VideoDataLoader {
-    typealias Result = Swift.Result<Data, Error>
+    typealias Result = Swift.Result<URL, Error>
     
     func loadVideoData(from videoId: String, completion: @escaping (Result) -> Void)
 }
