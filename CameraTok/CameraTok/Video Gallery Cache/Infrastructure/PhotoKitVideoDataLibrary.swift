@@ -22,4 +22,17 @@ public final class PhotoKitVideoDataLibrary: VideoDataLibrary {
             completion(image?.pngData())
         }
     }
+    
+    public func getVideoDataFromAsset(_ asset: PHAsset, completion: @escaping (Data?) -> Void) {
+        let imageManager = PHCachingImageManager()
+        imageManager.requestAVAsset(forVideo: asset, options: nil) { avAsset, audioMix, info in
+            guard let url = (avAsset as? AVURLAsset)?.url else {
+                completion(nil)
+                return
+            }
+            
+            let data = try? Data(contentsOf: url)
+            completion(data)
+        }
+    }
 }

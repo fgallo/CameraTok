@@ -14,4 +14,5 @@ public protocol VideoLibrary {
 public protocol VideoDataLibrary {
     func fetchVideoAsset(id: String) -> PHAsset
     func getThumbnailDataFromAsset(_ asset: PHAsset, size: CGSize, completion: @escaping (Data?) -> Void)
+    func getVideoDataFromAsset(_ asset: PHAsset, completion: @escaping (Data?) -> Void)
 }

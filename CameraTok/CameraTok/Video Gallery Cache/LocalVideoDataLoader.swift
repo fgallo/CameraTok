@@ -1,10 +1,10 @@
 //
-//  Created by Fernando Gallo on 07/08/23.
+//  Created by Fernando Gallo on 08/08/23.
 //
 
 import Foundation
 
-public final class LocalThumbnailDataLoader: ThumbnailDataLoader {
+public final class LocalVideoDataLoader: VideoDataLoader {
     private let videoLibrary: VideoLibrary
     private let videoDataLibrary: VideoDataLibrary
     
@@ -13,7 +13,7 @@ public final class LocalThumbnailDataLoader: ThumbnailDataLoader {
         self.videoDataLibrary = videoDataLibrary
     }
     
-    public func loadThumbnailData(from videoId: String, withSize size: CGSize, completion: @escaping (ThumbnailDataLoader.Result) -> Void) {
+    public func loadVideoData(from videoId: String, withSize size: CGSize, completion: @escaping (VideoDataLoader.Result) -> Void) {
         guard videoLibrary.isPhotoAccessAuthorized() else {
             let error = NSError(domain: "Access to device gallery is not allowed.", code: 0)
             completion(.failure(error))
@@ -22,9 +22,9 @@ public final class LocalThumbnailDataLoader: ThumbnailDataLoader {
         
         let asset = videoDataLibrary.fetchVideoAsset(id: videoId)
         
-        videoDataLibrary.getThumbnailDataFromAsset(asset, size: size) { data in
+        videoDataLibrary.getVideoDataFromAsset(asset) { data in
             guard let data = data else {
-                let error = NSError(domain: "It was not possible to retrieve image data from this asset.", code: 0)
+                let error = NSError(domain: "It was not possible to retrieve video data from this asset.", code: 0)
                 completion(.failure(error))
                 return
             }
