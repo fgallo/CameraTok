@@ -10,7 +10,7 @@ public final class GalleryUIComposer {
     
     static func galleryComposedWith(videoGalleryLoader: VideoGalleryLoader,
                                     imageDataLoader: ThumbnailDataLoader,
-                                    selection: @escaping () -> Void) -> VideoGalleryContainerView {
+                                    selection: @escaping (Feed) -> Void) -> VideoGalleryContainerView {
         
         let videoGalleryViewModel = VideoGalleryViewModel(
             videoGalleryLoader: videoGalleryLoader
@@ -18,7 +18,14 @@ public final class GalleryUIComposer {
         
         let videoGalleryView = VideoGalleryContainerView(
             viewModel: videoGalleryViewModel,
-            makeVideoGalleryCell: adaptModelToCell(videoGalleryViewModel: videoGalleryViewModel, imageLoader: imageDataLoader)
+            makeVideoGalleryCell: adaptModelToCell(videoGalleryViewModel: videoGalleryViewModel, imageLoader: imageDataLoader),
+            onModelSelection: { index in
+                guard case .loaded(let items) = videoGalleryViewModel.state, index < items.count else {
+                    return
+                }
+                
+                selection(Feed(videoItems: items, startIndex: index))
+            }
         )
         
         return videoGalleryView

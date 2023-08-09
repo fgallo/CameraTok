@@ -14,6 +14,11 @@
 		4FCE03002A8311AF00ED8A15 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE02FF2A8311AF00ED8A15 /* FeedView.swift */; };
 		4FCE03032A8312E700ED8A15 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03022A8312E700ED8A15 /* FeedViewModel.swift */; };
 		4FCE03062A8315A600ED8A15 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03052A8315A600ED8A15 /* FeedUIComposer.swift */; };
+		4FCE030B2A83659F00ED8A15 /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE030A2A83659F00ED8A15 /* FeedCellViewModel.swift */; };
+		4FCE030D2A8365AF00ED8A15 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE030C2A8365AF00ED8A15 /* FeedCell.swift */; };
+		4FCE030F2A83CB5600ED8A15 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE030E2A83CB5600ED8A15 /* Feed.swift */; };
+		4FCE03122A83DB4800ED8A15 /* UIScrollViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03112A83DB4800ED8A15 /* UIScrollViewBridge.swift */; };
+		4FCE03152A83E9E000ED8A15 /* ScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03142A83E9E000ED8A15 /* ScrollViewModel.swift */; };
 		4FD1EA172A81E54F0046D4DC /* VideoGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1EA162A81E54F0046D4DC /* VideoGalleryView.swift */; };
 		4FD1EA192A81E60E0046D4DC /* VideoGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1EA182A81E60E0046D4DC /* VideoGalleryViewModel.swift */; };
 		4FD1EA202A81E72F0046D4DC /* CameraTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD1EA1F2A81E72F0046D4DC /* CameraTok.framework */; };
@@ -57,6 +62,11 @@
 		4FCE02FF2A8311AF00ED8A15 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		4FCE03022A8312E700ED8A15 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		4FCE03052A8315A600ED8A15 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
+		4FCE030A2A83659F00ED8A15 /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
+		4FCE030C2A8365AF00ED8A15 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		4FCE030E2A83CB5600ED8A15 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		4FCE03112A83DB4800ED8A15 /* UIScrollViewBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewBridge.swift; sourceTree = "<group>"; };
+		4FCE03142A83E9E000ED8A15 /* ScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewModel.swift; sourceTree = "<group>"; };
 		4FD1EA162A81E54F0046D4DC /* VideoGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryView.swift; sourceTree = "<group>"; };
 		4FD1EA182A81E60E0046D4DC /* VideoGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryViewModel.swift; sourceTree = "<group>"; };
 		4FD1EA1B2A81E6BB0046D4DC /* CameraTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CameraTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +147,7 @@
 			children = (
 				4FCE03042A83159D00ED8A15 /* Composer */,
 				4FCE02FC2A83118600ED8A15 /* Views */,
+				4FCE03132A83E9AA00ED8A15 /* ViewModels */,
 				4FCE03012A8312D600ED8A15 /* Models */,
 			);
 			path = "Feed UI";
@@ -145,7 +156,9 @@
 		4FCE02FC2A83118600ED8A15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4FCE03102A83DB3B00ED8A15 /* Helpers */,
 				4FCE02FF2A8311AF00ED8A15 /* FeedView.swift */,
+				4FCE030C2A8365AF00ED8A15 /* FeedCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,7 +166,7 @@
 		4FCE03012A8312D600ED8A15 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4FCE03022A8312E700ED8A15 /* FeedViewModel.swift */,
+				4FCE030E2A83CB5600ED8A15 /* Feed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +177,24 @@
 				4FCE03052A8315A600ED8A15 /* FeedUIComposer.swift */,
 			);
 			path = Composer;
+			sourceTree = "<group>";
+		};
+		4FCE03102A83DB3B00ED8A15 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE03112A83DB4800ED8A15 /* UIScrollViewBridge.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4FCE03132A83E9AA00ED8A15 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE03142A83E9E000ED8A15 /* ScrollViewModel.swift */,
+				4FCE03022A8312E700ED8A15 /* FeedViewModel.swift */,
+				4FCE030A2A83659F00ED8A15 /* FeedCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		4FD1EA152A81E5250046D4DC /* Gallery UI */ = {
@@ -313,14 +344,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FCE03002A8311AF00ED8A15 /* FeedView.swift in Sources */,
+				4FCE030F2A83CB5600ED8A15 /* Feed.swift in Sources */,
 				4FCE03062A8315A600ED8A15 /* FeedUIComposer.swift in Sources */,
 				4FD1EA2B2A81F6580046D4DC /* GalleryUIComposer.swift in Sources */,
+				4FCE03122A83DB4800ED8A15 /* UIScrollViewBridge.swift in Sources */,
 				4FD1EA262A81F20A0046D4DC /* VideoGalleryCellViewModel.swift in Sources */,
+				4FCE030D2A8365AF00ED8A15 /* FeedCell.swift in Sources */,
 				4FD1EA242A81F1D50046D4DC /* VideoGalleryCell.swift in Sources */,
 				4FD1EA192A81E60E0046D4DC /* VideoGalleryViewModel.swift in Sources */,
+				4FCE030B2A83659F00ED8A15 /* FeedCellViewModel.swift in Sources */,
 				4F0736942A81E31B00A82340 /* CameraTokAppApp.swift in Sources */,
 				4FCE03032A8312E700ED8A15 /* FeedViewModel.swift in Sources */,
 				4FD1EA172A81E54F0046D4DC /* VideoGalleryView.swift in Sources */,
+				4FCE03152A83E9E000ED8A15 /* ScrollViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

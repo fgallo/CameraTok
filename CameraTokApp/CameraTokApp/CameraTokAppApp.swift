@@ -7,14 +7,24 @@ import CameraTok
 
 @main
 struct CameraTokAppApp: App {
+    @State var navigationPath = NavigationPath()
+    
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
+            NavigationStack(path: $navigationPath) {
                 GalleryUIComposer.galleryComposedWith(
                     videoGalleryLoader: makeVidelGalleryLoader(),
                     imageDataLoader: makeThumbnailDataLoader(),
-                    selection: {}
+                    selection: { feed in
+                        navigationPath.append(feed)
+                    }
                 )
+                .navigationDestination(for: Feed.self) { feed in
+                    FeedUIComposer.feedComposedWith(
+                        feed: feed,
+                        videoLoader: makeVideoDataLoader()
+                    )
+                }
             }
         }
     }
@@ -30,5 +40,11 @@ extension CameraTokAppApp {
         let videoLibrary = PhotoKitVideoLibrary()
         let videoDataLibrary = PhotoKitVideoDataLibrary()
         return LocalThumbnailDataLoader(videoLibrary: videoLibrary, videoDataLibrary: videoDataLibrary)
+    }
+    
+    func makeVideoDataLoader() -> VideoDataLoader {
+        let videoLibrary = PhotoKitVideoLibrary()
+        let videoDataLibrary = PhotoKitVideoDataLibrary()
+        return LocalVideoDataLoader(videoLibrary: videoLibrary, videoDataLibrary: videoDataLibrary)
     }
 }
