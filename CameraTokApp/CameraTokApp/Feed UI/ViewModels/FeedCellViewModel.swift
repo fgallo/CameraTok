@@ -1,11 +1,11 @@
 //
-//  Created by Fernando Gallo on 08/08/23.
+//  Created by Fernando Gallo on 09/08/23.
 //
 
 import Foundation
 import CameraTok
 
-class FeedViewModel: ObservableObject  {
+class FeedCellViewModel: ObservableObject {
     private let model: VideoItem
     private let videoLoader: VideoDataLoader
     
@@ -19,12 +19,20 @@ class FeedViewModel: ObservableObject  {
     func loadVideoData() {
         state = .loading
         videoLoader.loadVideoData(from: model.id) { result in
-            
+            switch result {
+            case let .success(url):
+                DispatchQueue.main.async {
+                    self.state = .loaded(url)
+                }
+                
+            case .failure:
+                self.state = .error
+            }
         }
     }
 }
 
-extension FeedViewModel {
+extension FeedCellViewModel {
     enum State {
         case loading
         case loaded(_ url: URL)
