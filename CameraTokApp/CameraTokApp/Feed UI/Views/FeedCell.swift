@@ -20,6 +20,10 @@ struct FeedContainerCell: View {
 }
 
 struct FeedCell: View {
+    @State private var videoPos: Double = 0
+    @State private var videoDuration: Double = 0
+    @State private var seeking = false
+    
     var state: FeedCellViewModel.State
     var onRetry: () -> Void
     
@@ -40,15 +44,34 @@ struct FeedCell: View {
     }
     
     func videoPlayer(url: URL) -> some View {
-        let player = AVPlayer(url: url)
-        return VideoPlayer(player: player)
-            .edgesIgnoringSafeArea(.top)
+        let player = AVQueuePlayer(url: url)
+        return ZStack {
+            VideoPlayerView(
+                videoPos: $videoPos,
+                videoDuration: $videoDuration,
+                seeking: $seeking,
+                player: player
+            )
             .onAppear {
+                player.seek(to: .zero)
                 player.play()
             }
             .onTapGesture {
                 player.rate == .zero ? player.play() : player.pause()
             }
+
+            VStack {
+                Spacer()
+                
+                VideoPlayerControlsView(
+                    videoPos: $videoPos,
+                    videoDuration: $videoDuration,
+                    seeking: $seeking,
+                    player: player
+                )
+            }
+            .padding()
+        }
     }
 }
 
