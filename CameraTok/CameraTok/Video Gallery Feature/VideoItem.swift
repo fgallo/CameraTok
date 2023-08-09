@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct VideoItem: Equatable {
+public struct VideoItem: Hashable {
     public let id: String
     public let duration: Double
     public let liked: Bool
