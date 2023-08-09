@@ -11,6 +11,9 @@
 		4F0736982A81E31C00A82340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F0736972A81E31C00A82340 /* Assets.xcassets */; };
 		4F07369B2A81E31C00A82340 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F07369A2A81E31C00A82340 /* Preview Assets.xcassets */; };
 		4F0736A52A81E31C00A82340 /* CameraTokAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0736A42A81E31C00A82340 /* CameraTokAppTests.swift */; };
+		4FCE03002A8311AF00ED8A15 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE02FF2A8311AF00ED8A15 /* FeedView.swift */; };
+		4FCE03032A8312E700ED8A15 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03022A8312E700ED8A15 /* FeedViewModel.swift */; };
+		4FCE03062A8315A600ED8A15 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03052A8315A600ED8A15 /* FeedUIComposer.swift */; };
 		4FD1EA172A81E54F0046D4DC /* VideoGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1EA162A81E54F0046D4DC /* VideoGalleryView.swift */; };
 		4FD1EA192A81E60E0046D4DC /* VideoGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1EA182A81E60E0046D4DC /* VideoGalleryViewModel.swift */; };
 		4FD1EA202A81E72F0046D4DC /* CameraTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD1EA1F2A81E72F0046D4DC /* CameraTok.framework */; };
@@ -51,6 +54,9 @@
 		4F07369A2A81E31C00A82340 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4F0736A02A81E31C00A82340 /* CameraTokAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTokAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F0736A42A81E31C00A82340 /* CameraTokAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTokAppTests.swift; sourceTree = "<group>"; };
+		4FCE02FF2A8311AF00ED8A15 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		4FCE03022A8312E700ED8A15 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		4FCE03052A8315A600ED8A15 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		4FD1EA162A81E54F0046D4DC /* VideoGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryView.swift; sourceTree = "<group>"; };
 		4FD1EA182A81E60E0046D4DC /* VideoGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryViewModel.swift; sourceTree = "<group>"; };
 		4FD1EA1B2A81E6BB0046D4DC /* CameraTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CameraTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				4FD1EA152A81E5250046D4DC /* Gallery UI */,
+				4FCE02FB2A83117B00ED8A15 /* Feed UI */,
 				4F0736932A81E31B00A82340 /* CameraTokAppApp.swift */,
 				4F0736972A81E31C00A82340 /* Assets.xcassets */,
 				4F0736992A81E31C00A82340 /* Preview Content */,
@@ -123,6 +130,40 @@
 				4F0736A42A81E31C00A82340 /* CameraTokAppTests.swift */,
 			);
 			path = CameraTokAppTests;
+			sourceTree = "<group>";
+		};
+		4FCE02FB2A83117B00ED8A15 /* Feed UI */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE03042A83159D00ED8A15 /* Composer */,
+				4FCE02FC2A83118600ED8A15 /* Views */,
+				4FCE03012A8312D600ED8A15 /* Models */,
+			);
+			path = "Feed UI";
+			sourceTree = "<group>";
+		};
+		4FCE02FC2A83118600ED8A15 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE02FF2A8311AF00ED8A15 /* FeedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4FCE03012A8312D600ED8A15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE03022A8312E700ED8A15 /* FeedViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4FCE03042A83159D00ED8A15 /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE03052A8315A600ED8A15 /* FeedUIComposer.swift */,
+			);
+			path = Composer;
 			sourceTree = "<group>";
 		};
 		4FD1EA152A81E5250046D4DC /* Gallery UI */ = {
@@ -271,11 +312,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FCE03002A8311AF00ED8A15 /* FeedView.swift in Sources */,
+				4FCE03062A8315A600ED8A15 /* FeedUIComposer.swift in Sources */,
 				4FD1EA2B2A81F6580046D4DC /* GalleryUIComposer.swift in Sources */,
 				4FD1EA262A81F20A0046D4DC /* VideoGalleryCellViewModel.swift in Sources */,
 				4FD1EA242A81F1D50046D4DC /* VideoGalleryCell.swift in Sources */,
 				4FD1EA192A81E60E0046D4DC /* VideoGalleryViewModel.swift in Sources */,
 				4F0736942A81E31B00A82340 /* CameraTokAppApp.swift in Sources */,
+				4FCE03032A8312E700ED8A15 /* FeedViewModel.swift in Sources */,
 				4FD1EA172A81E54F0046D4DC /* VideoGalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
