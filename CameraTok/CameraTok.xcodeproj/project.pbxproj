@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				4F2821742A81904F007561A9 /* Video Gallery Feature */,
-				4F28217D2A81B368007561A9 /* Video Gallery PhotoKit */,
+				4F28217D2A81B368007561A9 /* Video Gallery Cache */,
 			);
 			path = CameraTok;
 			sourceTree = "<group>";
@@ -120,16 +120,24 @@
 			path = "Video Gallery Feature";
 			sourceTree = "<group>";
 		};
-		4F28217D2A81B368007561A9 /* Video Gallery PhotoKit */ = {
+		4F28217D2A81B368007561A9 /* Video Gallery Cache */ = {
 			isa = PBXGroup;
 			children = (
+				4FCE02F82A830EC400ED8A15 /* Infrastructure */,
 				4F2821802A81B488007561A9 /* VideoLibrary.swift */,
 				4F28217E2A81B3C5007561A9 /* LocalVideoGalleryLoader.swift */,
-				4F28217B2A819CC6007561A9 /* PhotoKitVideoLibrary.swift */,
-				4F0736542A81D1DD00A82340 /* PhotoKitVideoDataLibrary.swift */,
 				4F2821842A81C206007561A9 /* LocalThumbnailDataLoader.swift */,
 			);
-			path = "Video Gallery PhotoKit";
+			path = "Video Gallery Cache";
+			sourceTree = "<group>";
+		};
+		4FCE02F82A830EC400ED8A15 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				4F28217B2A819CC6007561A9 /* PhotoKitVideoLibrary.swift */,
+				4F0736542A81D1DD00A82340 /* PhotoKitVideoDataLibrary.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
