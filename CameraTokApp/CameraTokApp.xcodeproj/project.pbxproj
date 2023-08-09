@@ -121,12 +121,12 @@
 		4F0736922A81E31B00A82340 /* CameraTokApp */ = {
 			isa = PBXGroup;
 			children = (
+				4F0736932A81E31B00A82340 /* CameraTokAppApp.swift */,
 				4FCE03192A84221700ED8A15 /* Helpers */,
 				4FD1EA152A81E5250046D4DC /* Gallery UI */,
 				4FCE02FB2A83117B00ED8A15 /* Feed UI */,
-				4F0736932A81E31B00A82340 /* CameraTokAppApp.swift */,
-				4F0736972A81E31C00A82340 /* Assets.xcassets */,
 				4F0736992A81E31C00A82340 /* Preview Content */,
+				4F0736972A81E31C00A82340 /* Assets.xcassets */,
 			);
 			path = CameraTokApp;
 			sourceTree = "<group>";
