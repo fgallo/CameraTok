@@ -19,6 +19,8 @@
 		4FCE030F2A83CB5600ED8A15 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE030E2A83CB5600ED8A15 /* Feed.swift */; };
 		4FCE03122A83DB4800ED8A15 /* UIScrollViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03112A83DB4800ED8A15 /* UIScrollViewBridge.swift */; };
 		4FCE03152A83E9E000ED8A15 /* ScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03142A83E9E000ED8A15 /* ScrollViewModel.swift */; };
+		4FCE03182A841F0B00ED8A15 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03172A841F0B00ED8A15 /* VideoPlayerView.swift */; };
+		4FCE031B2A84222A00ED8A15 /* TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE031A2A84222A00ED8A15 /* TimeFormatter.swift */; };
 		4FD1EA172A81E54F0046D4DC /* VideoGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1EA162A81E54F0046D4DC /* VideoGalleryView.swift */; };
 		4FD1EA192A81E60E0046D4DC /* VideoGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1EA182A81E60E0046D4DC /* VideoGalleryViewModel.swift */; };
 		4FD1EA202A81E72F0046D4DC /* CameraTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD1EA1F2A81E72F0046D4DC /* CameraTok.framework */; };
@@ -67,6 +69,8 @@
 		4FCE030E2A83CB5600ED8A15 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		4FCE03112A83DB4800ED8A15 /* UIScrollViewBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewBridge.swift; sourceTree = "<group>"; };
 		4FCE03142A83E9E000ED8A15 /* ScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewModel.swift; sourceTree = "<group>"; };
+		4FCE03172A841F0B00ED8A15 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		4FCE031A2A84222A00ED8A15 /* TimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatter.swift; sourceTree = "<group>"; };
 		4FD1EA162A81E54F0046D4DC /* VideoGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryView.swift; sourceTree = "<group>"; };
 		4FD1EA182A81E60E0046D4DC /* VideoGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryViewModel.swift; sourceTree = "<group>"; };
 		4FD1EA1B2A81E6BB0046D4DC /* CameraTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CameraTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +121,7 @@
 		4F0736922A81E31B00A82340 /* CameraTokApp */ = {
 			isa = PBXGroup;
 			children = (
+				4FCE03192A84221700ED8A15 /* Helpers */,
 				4FD1EA152A81E5250046D4DC /* Gallery UI */,
 				4FCE02FB2A83117B00ED8A15 /* Feed UI */,
 				4F0736932A81E31B00A82340 /* CameraTokAppApp.swift */,
@@ -156,6 +161,7 @@
 		4FCE02FC2A83118600ED8A15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4FCE03162A841EE400ED8A15 /* VideoPlayer */,
 				4FCE03102A83DB3B00ED8A15 /* Helpers */,
 				4FCE02FF2A8311AF00ED8A15 /* FeedView.swift */,
 				4FCE030C2A8365AF00ED8A15 /* FeedCell.swift */,
@@ -195,6 +201,22 @@
 				4FCE030A2A83659F00ED8A15 /* FeedCellViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4FCE03162A841EE400ED8A15 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE03172A841F0B00ED8A15 /* VideoPlayerView.swift */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		4FCE03192A84221700ED8A15 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4FCE031A2A84222A00ED8A15 /* TimeFormatter.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		4FD1EA152A81E5250046D4DC /* Gallery UI */ = {
@@ -344,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FCE03002A8311AF00ED8A15 /* FeedView.swift in Sources */,
+				4FCE031B2A84222A00ED8A15 /* TimeFormatter.swift in Sources */,
 				4FCE030F2A83CB5600ED8A15 /* Feed.swift in Sources */,
 				4FCE03062A8315A600ED8A15 /* FeedUIComposer.swift in Sources */,
 				4FD1EA2B2A81F6580046D4DC /* GalleryUIComposer.swift in Sources */,
@@ -357,6 +380,7 @@
 				4FCE03032A8312E700ED8A15 /* FeedViewModel.swift in Sources */,
 				4FD1EA172A81E54F0046D4DC /* VideoGalleryView.swift in Sources */,
 				4FCE03152A83E9E000ED8A15 /* ScrollViewModel.swift in Sources */,
+				4FCE03182A841F0B00ED8A15 /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
