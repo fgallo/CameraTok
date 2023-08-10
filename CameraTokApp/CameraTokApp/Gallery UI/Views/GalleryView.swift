@@ -18,9 +18,6 @@ struct GalleryContainerView: View {
                 viewModel.loadMore()
             }
         )
-        .onAppear {
-            viewModel.loadGallery()
-        }
         .navigationTitle("CameraTok")
         .toolbar {
             DatePicker("", selection: $viewModel.startDate, displayedComponents: .date)
