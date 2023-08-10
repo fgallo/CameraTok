@@ -27,6 +27,7 @@ struct FeedCell: View {
     @State private var videoPos: Double = 0
     @State private var videoDuration: Double = 0
     @State private var seeking = false
+    @State private var mute = false
     
     var state: FeedCellViewModel.State
     var rateState: FeedCellViewModel.RateState
@@ -56,6 +57,13 @@ struct FeedCell: View {
                 Spacer()
                 VStack {
                     Spacer()
+                    
+                    Button {
+                        mute.toggle()
+                    } label: {
+                        Image(systemName: mute ? "speaker.slash" : "speaker")
+                    }
+                    .padding(.bottom)
                     
                     Button {
                         onLike()
@@ -106,6 +114,7 @@ struct FeedCell: View {
                     videoPos: $videoPos,
                     videoDuration: $videoDuration,
                     seeking: $seeking,
+                    mute: $mute,
                     player: player
                 )
             }

@@ -93,6 +93,7 @@ struct VideoPlayerControlsView : View {
     @Binding private(set) var videoPos: Double
     @Binding private(set) var videoDuration: Double
     @Binding private(set) var seeking: Bool
+    @Binding private(set) var mute: Bool
     
     let player: AVPlayer
     
@@ -112,6 +113,10 @@ struct VideoPlayerControlsView : View {
                 .tint(.white)
         }
         .padding()
+        .onChange(of: mute) { mute in
+            player.isMuted = mute
+            player.volume = mute ? 0 : 1
+        }
     }
     
     private func togglePlayPause() {
