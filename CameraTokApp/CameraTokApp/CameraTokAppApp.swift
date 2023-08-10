@@ -50,7 +50,7 @@ extension CameraTokAppApp {
     }
     
     func makeRateCache() -> RateCache {
-        let storeURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("rate.store")
+        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("rate.store")        
         let store = CodableRateStore(storeURL: storeURL)
         return LocalLikeLoader(store: store)
     }

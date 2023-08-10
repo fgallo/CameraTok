@@ -14,7 +14,7 @@ public class CodableRateStore: RateStore {
     }
     
     public func insert(_ rate: RateItem, completion: @escaping InsertionCompletion) {
-        let storeURL = self.storeURL
+        let storeURL = getStoreURL(rate.videoId)
         queue.async(flags: .barrier) {
             do {
                 let encoder = JSONEncoder()
@@ -27,8 +27,8 @@ public class CodableRateStore: RateStore {
         }
     }
     
-    public func retrieve(completion: @escaping RetrieveCompletion) {
-        let storeURL = self.storeURL
+    public func retrieve(_ videoId: String, completion: @escaping RetrieveCompletion) {
+        let storeURL = getStoreURL(videoId)
         queue.async {
             guard let data = try? Data(contentsOf: storeURL) else {
                 return completion(.empty)
@@ -36,11 +36,15 @@ public class CodableRateStore: RateStore {
             
             do {
                 let decoder = JSONDecoder()
-                let rates = try decoder.decode([RateItem].self, from: data)
-                completion(.found(rates))
+                let rate = try decoder.decode(RateItem.self, from: data)
+                completion(.found(rate))
             } catch {
                 completion(.failure(error))
             }
         }
+    }
+    
+    private func getStoreURL(_ videoId: String) -> URL {
+        self.storeURL.appending(path: videoId.replacingOccurrences(of: "/", with: "").replacingOccurrences(of: "-", with: ""))
     }
 }

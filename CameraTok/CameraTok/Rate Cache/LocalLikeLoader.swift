@@ -15,15 +15,15 @@ public final class LocalLikeLoader: RateCache {
         cache(videoRate, with: completion)
     }
     
-    public func load(completion: @escaping (RateCache.LoadResult) -> Void) {
-        store.retrieve { [weak self] result in
+    public func load(_ videoId: String, completion: @escaping (RateCache.LoadResult) -> Void) {
+        store.retrieve(videoId) { [weak self] result in
             guard let _ = self else { return }
             
             switch result {
             case .empty:
-                completion(.success([]))
-            case let .found(items):
-                completion(.success(items))
+                completion(.success(nil))
+            case let .found(item):
+                completion(.success(item))
             case let .failure(error):
                 completion(.failure(error))
             }

@@ -11,12 +11,14 @@ struct FeedContainerCell: View {
     var body: some View {
         FeedCell(
             state: viewModel.state,
+            rateState: viewModel.rateState,
             onRetry: { viewModel.loadVideoData() },
             onLike: { viewModel.like() },
             onDislike: { viewModel.dislike() }
         )
         .onAppear {
             viewModel.loadVideoData()
+            viewModel.loadRate()
         }
     }
 }
@@ -27,6 +29,7 @@ struct FeedCell: View {
     @State private var seeking = false
     
     var state: FeedCellViewModel.State
+    var rateState: FeedCellViewModel.RateState
     var onRetry: () -> Void
     var onLike: () -> Void
     var onDislike: () -> Void
@@ -57,14 +60,14 @@ struct FeedCell: View {
                     Button {
                         onLike()
                     } label: {
-                        Image(systemName: "hand.thumbsup")
+                        Image(systemName: rateState == .liked ? "hand.thumbsup.fill" : "hand.thumbsup")
                     }
                     .padding(.bottom)
                     
                     Button {
                         onDislike()
                     } label: {
-                        Image(systemName: "hand.thumbsdown")
+                        Image(systemName: rateState == .disliked ? "hand.thumbsdown.fill" : "hand.thumbsdown")
                     }
                     
                     
@@ -115,6 +118,7 @@ struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
         FeedCell(
             state: .loading,
+            rateState: .liked,
             onRetry: {},
             onLike: {},
             onDislike: {}
