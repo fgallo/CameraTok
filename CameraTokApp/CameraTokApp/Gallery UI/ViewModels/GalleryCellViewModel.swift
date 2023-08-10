@@ -20,7 +20,8 @@ class GalleryCellViewModel<Image>: ObservableObject {
     
     func loadImageData(size: CGSize) {
         state = .loading
-        imageLoader.loadThumbnailData(from: model.id, withSize: size) { result in
+        imageLoader.loadThumbnailData(from: model.id, withSize: size) { [weak self] result in
+            guard let self = self else { return }
             guard let image = (try? result.get()).flatMap(self.imageTransformer) else {
                 self.state = .error
                 return

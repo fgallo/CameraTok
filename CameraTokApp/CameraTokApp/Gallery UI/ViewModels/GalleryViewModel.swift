@@ -18,7 +18,8 @@ class GalleryViewModel: ObservableObject {
         
         $startDate
             .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
-            .sink { date in
+            .sink { [weak self] date in
+                guard let self = self else { return }
                 self.loadGallery()
             }
             .store(in: &cancellables)
@@ -26,7 +27,8 @@ class GalleryViewModel: ObservableObject {
     
     func loadGallery() {
         state = .loading
-        videoGalleryLoader.load(with: startDate) { result in
+        videoGalleryLoader.load(with: startDate) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case let .success(videoItems):
                 DispatchQueue.main.async {
@@ -43,7 +45,8 @@ class GalleryViewModel: ObservableObject {
             return
         }
         
-        videoGalleryLoader.load(with: items.last?.creationDate ?? Date()) { result in
+        videoGalleryLoader.load(with: items.last?.creationDate ?? Date()) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case let .success(videoItems):
                 DispatchQueue.main.async {

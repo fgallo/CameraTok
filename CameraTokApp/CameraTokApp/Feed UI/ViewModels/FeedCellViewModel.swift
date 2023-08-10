@@ -21,7 +21,8 @@ class FeedCellViewModel: ObservableObject {
     
     func loadVideoData() {
         state = .loading
-        videoLoader.loadVideoData(from: model.id) { result in
+        videoLoader.loadVideoData(from: model.id) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case let .success(url):
                 DispatchQueue.main.async {
@@ -35,7 +36,8 @@ class FeedCellViewModel: ObservableObject {
     }
     
     func loadRate() {
-        rateCache.load(model.id) { result in
+        rateCache.load(model.id) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case let .success(item):
                 DispatchQueue.main.async {

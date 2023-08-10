@@ -16,17 +16,19 @@ struct FeedView: View {
             ZStack {
                 Color.black
                 
-                backButton
+                listView(geo)
                 
-                contentView(geo)
+                backButton
             }
             .edgesIgnoringSafeArea(.all)
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarHidden(true)
     }
-    
-    func contentView(_ geo: GeometryProxy) -> some View {
+}
+
+extension FeedView {
+    func listView(_ geo: GeometryProxy) -> some View {
         ScrollViewReader { reader in
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(spacing: 0) {
@@ -73,7 +75,6 @@ struct FeedView: View {
             }
             Spacer()
         }
-        .zIndex(1)
         .padding(.leading, 16)
         .padding(.top, 56)
     }
