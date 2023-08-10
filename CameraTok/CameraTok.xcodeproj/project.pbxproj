@@ -16,6 +16,7 @@
 		4F27DF9D2A84AFE4009A2738 /* LocalRateLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27DF9C2A84AFE4009A2738 /* LocalRateLoaderTests.swift */; };
 		4F27DF9F2A84B02F009A2738 /* RateStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27DF9E2A84B02F009A2738 /* RateStoreSpy.swift */; };
 		4F27DFA22A84B373009A2738 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27DFA12A84B373009A2738 /* XCTestCase+MemoryLeakTracking.swift */; };
+		4F27DFA42A84B57D009A2738 /* VideoLibrarySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27DFA32A84B57D009A2738 /* VideoLibrarySpy.swift */; };
 		4F2821652A818DA5007561A9 /* CameraTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F28215C2A818DA5007561A9 /* CameraTok.framework */; };
 		4F2821762A8190B4007561A9 /* VideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821752A8190B4007561A9 /* VideoItem.swift */; };
 		4F2821782A819333007561A9 /* VideoGalleryLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2821772A819333007561A9 /* VideoGalleryLoader.swift */; };
@@ -50,6 +51,7 @@
 		4F27DF9C2A84AFE4009A2738 /* LocalRateLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRateLoaderTests.swift; sourceTree = "<group>"; };
 		4F27DF9E2A84B02F009A2738 /* RateStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStoreSpy.swift; sourceTree = "<group>"; };
 		4F27DFA12A84B373009A2738 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		4F27DFA32A84B57D009A2738 /* VideoLibrarySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLibrarySpy.swift; sourceTree = "<group>"; };
 		4F28215C2A818DA5007561A9 /* CameraTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CameraTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2821642A818DA5007561A9 /* CameraTokTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTokTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2821752A8190B4007561A9 /* VideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItem.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				4F27DF9E2A84B02F009A2738 /* RateStoreSpy.swift */,
+				4F27DFA32A84B57D009A2738 /* VideoLibrarySpy.swift */,
 				4F27DFA12A84B373009A2738 /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = Helpers;
@@ -324,6 +327,7 @@
 			files = (
 				4F27DF9F2A84B02F009A2738 /* RateStoreSpy.swift in Sources */,
 				4F27DFA22A84B373009A2738 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				4F27DFA42A84B57D009A2738 /* VideoLibrarySpy.swift in Sources */,
 				4F28217A2A819866007561A9 /* LocalVideoGalleryLoaderTests.swift in Sources */,
 				4F27DF9D2A84AFE4009A2738 /* LocalRateLoaderTests.swift in Sources */,
 			);

@@ -3,7 +3,6 @@
 //
 
 import XCTest
-import Photos
 @testable import CameraTok
 
 final class LocalRateLoaderTests: XCTestCase {
@@ -139,19 +138,11 @@ final class LocalRateLoaderTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
  
-    func makeRate() -> RateItem {
+    private func makeRate() -> RateItem {
         return RateItem(videoId: "1", rate: .like)
     }
-    
-    func anyURL() -> URL {
-        return URL(string: "http://any-url.com")!
-    }
 
-    func anyNSError() -> NSError {
+    private func anyNSError() -> NSError {
         return NSError(domain: "any error", code: 0)
-    }
-
-    func anyData() -> Data {
-        return Data("any data".utf8)
     }
 }

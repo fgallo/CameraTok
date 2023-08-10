@@ -10,7 +10,6 @@
 		4F0736942A81E31B00A82340 /* CameraTokAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0736932A81E31B00A82340 /* CameraTokAppApp.swift */; };
 		4F0736982A81E31C00A82340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F0736972A81E31C00A82340 /* Assets.xcassets */; };
 		4F07369B2A81E31C00A82340 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F07369A2A81E31C00A82340 /* Preview Assets.xcassets */; };
-		4F0736A52A81E31C00A82340 /* CameraTokAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0736A42A81E31C00A82340 /* CameraTokAppTests.swift */; };
 		4FCE03002A8311AF00ED8A15 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE02FF2A8311AF00ED8A15 /* FeedView.swift */; };
 		4FCE03032A8312E700ED8A15 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03022A8312E700ED8A15 /* FeedViewModel.swift */; };
 		4FCE03062A8315A600ED8A15 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE03052A8315A600ED8A15 /* FeedUIComposer.swift */; };
@@ -29,16 +28,6 @@
 		4FD1EA262A81F20A0046D4DC /* GalleryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1EA252A81F20A0046D4DC /* GalleryCellViewModel.swift */; };
 		4FD1EA2B2A81F6580046D4DC /* GalleryUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1EA2A2A81F6580046D4DC /* GalleryUIComposer.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		4F0736A12A81E31C00A82340 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4F0736882A81E31B00A82340 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4F07368F2A81E31B00A82340;
-			remoteInfo = CameraTokApp;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		4FD1EA222A81E72F0046D4DC /* Embed Frameworks */ = {
@@ -59,8 +48,6 @@
 		4F0736932A81E31B00A82340 /* CameraTokAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTokAppApp.swift; sourceTree = "<group>"; };
 		4F0736972A81E31C00A82340 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F07369A2A81E31C00A82340 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4F0736A02A81E31C00A82340 /* CameraTokAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTokAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F0736A42A81E31C00A82340 /* CameraTokAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTokAppTests.swift; sourceTree = "<group>"; };
 		4FCE02FF2A8311AF00ED8A15 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		4FCE03022A8312E700ED8A15 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		4FCE03052A8315A600ED8A15 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
@@ -89,13 +76,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F07369D2A81E31C00A82340 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -103,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				4F0736922A81E31B00A82340 /* CameraTokApp */,
-				4F0736A32A81E31C00A82340 /* CameraTokAppTests */,
 				4F0736912A81E31B00A82340 /* Products */,
 				4FD1EA1A2A81E6BB0046D4DC /* Frameworks */,
 			);
@@ -113,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				4F0736902A81E31B00A82340 /* CameraTokApp.app */,
-				4F0736A02A81E31C00A82340 /* CameraTokAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,14 +115,6 @@
 				4F07369A2A81E31C00A82340 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		4F0736A32A81E31C00A82340 /* CameraTokAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				4F0736A42A81E31C00A82340 /* CameraTokAppTests.swift */,
-			);
-			path = CameraTokAppTests;
 			sourceTree = "<group>";
 		};
 		4FCE02FB2A83117B00ED8A15 /* Feed UI */ = {
@@ -285,24 +255,6 @@
 			productReference = 4F0736902A81E31B00A82340 /* CameraTokApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4F07369F2A81E31C00A82340 /* CameraTokAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4F0736B72A81E31C00A82340 /* Build configuration list for PBXNativeTarget "CameraTokAppTests" */;
-			buildPhases = (
-				4F07369C2A81E31C00A82340 /* Sources */,
-				4F07369D2A81E31C00A82340 /* Frameworks */,
-				4F07369E2A81E31C00A82340 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4F0736A22A81E31C00A82340 /* PBXTargetDependency */,
-			);
-			name = CameraTokAppTests;
-			productName = CameraTokAppTests;
-			productReference = 4F0736A02A81E31C00A82340 /* CameraTokAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,10 +267,6 @@
 				TargetAttributes = {
 					4F07368F2A81E31B00A82340 = {
 						CreatedOnToolsVersion = 14.3.1;
-					};
-					4F07369F2A81E31C00A82340 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = 4F07368F2A81E31B00A82340;
 					};
 				};
 			};
@@ -336,7 +284,6 @@
 			projectRoot = "";
 			targets = (
 				4F07368F2A81E31B00A82340 /* CameraTokApp */,
-				4F07369F2A81E31C00A82340 /* CameraTokAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -348,13 +295,6 @@
 			files = (
 				4F07369B2A81E31C00A82340 /* Preview Assets.xcassets in Resources */,
 				4F0736982A81E31C00A82340 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F07369E2A81E31C00A82340 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,23 +324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F07369C2A81E31C00A82340 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4F0736A52A81E31C00A82340 /* CameraTokAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4F0736A22A81E31C00A82340 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4F07368F2A81E31B00A82340 /* CameraTokApp */;
-			targetProxy = 4F0736A12A81E31C00A82340 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4F0736B22A81E31C00A82340 /* Debug */ = {
@@ -577,46 +501,6 @@
 			};
 			name = Release;
 		};
-		4F0736B82A81E31C00A82340 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TF59LXWJ93;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.flavrs.CameraTokAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CameraTokApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CameraTokApp";
-			};
-			name = Debug;
-		};
-		4F0736B92A81E31C00A82340 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TF59LXWJ93;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.flavrs.CameraTokAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CameraTokApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CameraTokApp";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -634,15 +518,6 @@
 			buildConfigurations = (
 				4F0736B52A81E31C00A82340 /* Debug */,
 				4F0736B62A81E31C00A82340 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4F0736B72A81E31C00A82340 /* Build configuration list for PBXNativeTarget "CameraTokAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4F0736B82A81E31C00A82340 /* Debug */,
-				4F0736B92A81E31C00A82340 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -94,23 +94,4 @@ final class LocalVideoGalleryLoaderTests: XCTestCase {
     private func anyDate() -> Date {
         return Date()
     }
-    
-    private class VideoLibrarySpy: VideoLibrary {
-        var fetchRequests = [Date]()
-        var authorized = true
-        var assets = [PHAsset]()
-        
-        func isPhotoAccessAuthorized() -> Bool {
-            return authorized
-        }
-        
-        func requestAuthorization(completion: @escaping (Bool) -> Void) {
-            completion(false)
-        }
-        
-        func fetchVideoAssets(startDate: Date) -> [PHAsset] {
-            fetchRequests.append(startDate)
-            return assets
-        }
-    }
 }
