@@ -32,43 +32,51 @@ struct GalleryView: View {
     let loadMoreItems: () -> Void
     let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 2), count: 3)
     
-    @State var loadingMore = false
-    
     var body: some View {
         VStack {
             switch state {
             case .loading:
-                VStack {
-                    Spacer()
-                    ProgressView("Loading Gallery")
-                    Spacer()
-                }
+                loadingView
                 
             case let .loaded(items):
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 2) {
-                        ForEach(items.indices, id: \.self) { index in
-                            Button {
-                                onModelSelection(index)
-                            } label: {
-                                GeometryReader { geo in
-                                    let size = CGSize(width: geo.size.width, height: geo.size.width * 2)
-                                    makeVideoGalleryCell(index, size)
-                                }
-                                .cornerRadius(0)
-                                .aspectRatio(0.5, contentMode: .fit)
-                                .onAppear {
-                                    if index == items.count - 1 {
-                                        loadMoreItems()
-                                    }
-                                }
+                listView(items.count)
+                
+            case let .error(error as NSError):
+                errorView(error as NSError)
+            }
+        }
+    }
+}
+
+extension GalleryView {
+    var loadingView: some View {
+        ProgressView("Loading Gallery")
+    }
+    
+    func errorView(_ error: NSError) -> some View {
+        Text("\(error.domain)")
+    }
+    
+    func listView(_ itemsCount: Int) -> some View {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 2) {
+                ForEach(0..<itemsCount, id: \.self) { index in
+                    Button {
+                        onModelSelection(index)
+                    } label: {
+                        GeometryReader { geo in
+                            let size = CGSize(width: geo.size.width, height: geo.size.width * 2)
+                            makeVideoGalleryCell(index, size)
+                        }
+                        .cornerRadius(0)
+                        .aspectRatio(0.5, contentMode: .fit)
+                        .onAppear {
+                            if index == itemsCount - 1 {
+                                loadMoreItems()
                             }
                         }
                     }
                 }
-                
-            case let .error(error as NSError):
-                Text("\(error.domain)")
             }
         }
     }
