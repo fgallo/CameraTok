@@ -44,7 +44,7 @@ struct FeedCell: View {
     }
     
     func videoPlayer(url: URL) -> some View {
-        let player = AVQueuePlayer(url: url)
+        let player = AVPlayer(url: url)
         return ZStack {
             VideoPlayerView(
                 videoPos: $videoPos,

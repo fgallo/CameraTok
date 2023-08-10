@@ -6,21 +6,21 @@ import SwiftUI
 import AVFoundation
 
 class VideoPlayerUIView: UIView {
-    private let player: AVQueuePlayer
-    private let playerLayer = AVPlayerLayer()
-    private var playerLooper: AVPlayerLooper?
+    private let player: AVPlayer
+    private let playerLayer: AVPlayerLayer
     private let videoPos: Binding<Double>
     private let videoDuration: Binding<Double>
     private let seeking: Binding<Bool>
     private var durationObservation: NSKeyValueObservation?
     private var timeObservation: Any?
+    private var loopObservation: Any?
   
-    init(player: AVQueuePlayer, videoPos: Binding<Double>, videoDuration: Binding<Double>, seeking: Binding<Bool>) {
+    init(player: AVPlayer, videoPos: Binding<Double>, videoDuration: Binding<Double>, seeking: Binding<Bool>) {
         self.player = player
         self.videoDuration = videoDuration
         self.videoPos = videoPos
         self.seeking = seeking
-        
+        self.playerLayer = AVPlayerLayer()
         super.init(frame: .zero)
     
         backgroundColor = .black
@@ -28,9 +28,15 @@ class VideoPlayerUIView: UIView {
         playerLayer.videoGravity = .resizeAspectFill
         layer.addSublayer(playerLayer)
         
-        if let videoURL = ((player.currentItem?.asset) as? AVURLAsset)?.url {
-            let videoItem = AVPlayerItem(url: videoURL)
-            playerLooper = AVPlayerLooper(player: player, templateItem: videoItem)
+        self.player.isMuted = false
+        self.player.play()
+        
+        loopObservation = NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                                                     object: player.currentItem,
+                                                                     queue: OperationQueue.main) { [weak self] (noty) in
+            guard let self = self else { return }
+            self.player.seek(to: CMTime.zero)
+            self.player.play()
         }
         
         // Observe the duration of the player's item so we can display it
@@ -69,6 +75,11 @@ class VideoPlayerUIView: UIView {
         // Remove observers we setup in init
         durationObservation?.invalidate()
         durationObservation = nil
+        
+        if let observation = loopObservation {
+            NotificationCenter.default.removeObserver(observation)
+            loopObservation = nil
+        }
         
         if let observation = timeObservation {
             player.removeTimeObserver(observation)
@@ -143,7 +154,7 @@ struct VideoPlayerView: UIViewRepresentable {
     @Binding private(set) var videoDuration: Double
     @Binding private(set) var seeking: Bool
     
-    let player: AVQueuePlayer
+    let player: AVPlayer
     
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<VideoPlayerView>) {}
     
