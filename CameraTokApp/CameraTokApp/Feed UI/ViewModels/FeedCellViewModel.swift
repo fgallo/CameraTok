@@ -8,14 +8,14 @@ import CameraTok
 class FeedCellViewModel: ObservableObject {
     private let model: VideoItem
     private let videoLoader: VideoDataLoader
-    private let rateAction: VideoRateAction
+    private let rateCache: RateCache
     
     @Published var state: State = .loading
     
-    init(model: VideoItem, videoLoader: VideoDataLoader, rateAction: VideoRateAction) {
+    init(model: VideoItem, videoLoader: VideoDataLoader, rateCache: RateCache) {
         self.model = model
         self.videoLoader = videoLoader
-        self.rateAction = rateAction
+        self.rateCache = rateCache
     }
     
     func loadVideoData() {
@@ -43,7 +43,7 @@ class FeedCellViewModel: ObservableObject {
     
     private func rate(_ rate: Rate) {
         let item = RateItem(videoId: model.id, rate: rate)
-        rateAction.save(item) { _ in }
+        rateCache.save(item) { _ in }
     }
 }
 

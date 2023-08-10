@@ -4,18 +4,18 @@
 
 import Foundation
 
-public final class LocalLikeLoader: VideoRateAction {
+public final class LocalLikeLoader: RateCache {
     private let store: RateStore
     
     public init(store: RateStore) {
         self.store = store
     }
     
-    public func save(_ videoRate: RateItem, completion: @escaping (VideoRateAction.SaveResult) -> Void) {
+    public func save(_ videoRate: RateItem, completion: @escaping (RateCache.SaveResult) -> Void) {
         cache(videoRate, with: completion)
     }
     
-    public func load(completion: @escaping (VideoRateAction.LoadResult) -> Void) {
+    public func load(completion: @escaping (RateCache.LoadResult) -> Void) {
         store.retrieve { [weak self] result in
             guard let _ = self else { return }
             
@@ -30,7 +30,7 @@ public final class LocalLikeLoader: VideoRateAction {
         }
     }
     
-    private func cache(_ videoRate: RateItem, with completion: @escaping (VideoRateAction.SaveResult) -> Void) {
+    private func cache(_ videoRate: RateItem, with completion: @escaping (RateCache.SaveResult) -> Void) {
         store.insert(videoRate) { [weak self] error in
             guard self != nil else { return }
             

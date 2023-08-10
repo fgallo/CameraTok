@@ -23,7 +23,7 @@ struct CameraTokAppApp: App {
                     FeedUIComposer.feedComposedWith(
                         feed: feed,
                         videoLoader: makeVideoDataLoader(),
-                        rateAction: makeRateAction()
+                        rateCache: makeRateCache()
                     )
                 }
             }
@@ -49,7 +49,7 @@ extension CameraTokAppApp {
         return LocalVideoDataLoader(videoLibrary: videoLibrary, videoDataLibrary: videoDataLibrary)
     }
     
-    func makeRateAction() -> VideoRateAction {
+    func makeRateCache() -> RateCache {
         let storeURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("rate.store")
         let store = CodableRateStore(storeURL: storeURL)
         return LocalLikeLoader(store: store)

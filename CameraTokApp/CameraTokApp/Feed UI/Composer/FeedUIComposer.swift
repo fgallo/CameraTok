@@ -12,7 +12,7 @@ public final class FeedUIComposer {
     
     static func feedComposedWith(feed: Feed,
                                  videoLoader: VideoDataLoader,
-                                 rateAction: VideoRateAction) -> FeedView {
+                                 rateCache: RateCache) -> FeedView {
         let feedViewModel = FeedViewModel(feed: feed)
         let scrollViewModel = ScrollViewModel()
         
@@ -22,7 +22,7 @@ public final class FeedUIComposer {
             makeFeedCell: adaptModelToCell(
                 feedViewModel: feedViewModel,
                 videoLoader: videoLoader,
-                rateAction: rateAction
+                rateCache: rateCache
             )
         )
         
@@ -31,14 +31,14 @@ public final class FeedUIComposer {
     
     private static func adaptModelToCell(feedViewModel: FeedViewModel,
                                          videoLoader: VideoDataLoader,
-                                         rateAction: VideoRateAction) -> (Int) -> FeedContainerCell? {
+                                         rateCache: RateCache) -> (Int) -> FeedContainerCell? {
         return { index in
             guard index < feedViewModel.feed.videoItems.count else {
                 return nil
             }
             
             let model = feedViewModel.feed.videoItems[index]
-            let feedCellViewModel = FeedCellViewModel(model: model, videoLoader: videoLoader, rateAction: rateAction)
+            let feedCellViewModel = FeedCellViewModel(model: model, videoLoader: videoLoader, rateCache: rateCache)
             return FeedContainerCell(viewModel: feedCellViewModel)
         }
     }

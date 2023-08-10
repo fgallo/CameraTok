@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F0736552A81D1DD00A82340 /* PhotoKitVideoDataLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0736542A81D1DD00A82340 /* PhotoKitVideoDataLibrary.swift */; };
-		4F27DF922A846543009A2738 /* VideoRateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27DF912A846543009A2738 /* VideoRateAction.swift */; };
+		4F27DF922A846543009A2738 /* RateCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27DF912A846543009A2738 /* RateCache.swift */; };
 		4F27DF952A8466C7009A2738 /* LocalLikeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27DF942A8466C7009A2738 /* LocalLikeLoader.swift */; };
 		4F27DF972A8466FD009A2738 /* RateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27DF962A8466FD009A2738 /* RateStore.swift */; };
 		4F27DF992A846763009A2738 /* RateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F27DF982A846763009A2738 /* RateItem.swift */; };
@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		4F0736542A81D1DD00A82340 /* PhotoKitVideoDataLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoKitVideoDataLibrary.swift; sourceTree = "<group>"; };
 		4F0736862A81D65F00A82340 /* CameraTokUnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CameraTokUnitTests.xctestplan; sourceTree = "<group>"; };
-		4F27DF912A846543009A2738 /* VideoRateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRateAction.swift; sourceTree = "<group>"; };
+		4F27DF912A846543009A2738 /* RateCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCache.swift; sourceTree = "<group>"; };
 		4F27DF942A8466C7009A2738 /* LocalLikeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLikeLoader.swift; sourceTree = "<group>"; };
 		4F27DF962A8466FD009A2738 /* RateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStore.swift; sourceTree = "<group>"; };
 		4F27DF982A846763009A2738 /* RateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItem.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				4F27DF982A846763009A2738 /* RateItem.swift */,
-				4F27DF912A846543009A2738 /* VideoRateAction.swift */,
+				4F27DF912A846543009A2738 /* RateCache.swift */,
 			);
 			path = "Rate Feature";
 			sourceTree = "<group>";
@@ -291,7 +291,7 @@
 				4F28217F2A81B3C5007561A9 /* LocalVideoGalleryLoader.swift in Sources */,
 				4F27DF992A846763009A2738 /* RateItem.swift in Sources */,
 				4FCE02FA2A830F0900ED8A15 /* LocalVideoDataLoader.swift in Sources */,
-				4F27DF922A846543009A2738 /* VideoRateAction.swift in Sources */,
+				4F27DF922A846543009A2738 /* RateCache.swift in Sources */,
 				4F28217C2A819CC6007561A9 /* PhotoKitVideoLibrary.swift in Sources */,
 				4F27DF9B2A8468F8009A2738 /* CodableRateStore.swift in Sources */,
 				4F2821852A81C206007561A9 /* LocalThumbnailDataLoader.swift in Sources */,
