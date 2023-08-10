@@ -81,6 +81,8 @@ final class LocalVideoGalleryLoaderTests: XCTestCase {
     private func makeSUT() -> (sut: LocalVideoGalleryLoader, library: VideoLibrarySpy) {
         let library = VideoLibrarySpy()
         let sut = LocalVideoGalleryLoader(videoLibrary: library)
+        trackForMemoryLeaks(library)
+        trackForMemoryLeaks(sut)
         return (sut, library)
     }
     

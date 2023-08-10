@@ -4,7 +4,7 @@
 
 import Foundation
 
-public final class LocalLikeLoader: RateCache {
+public final class LocalRateLoader: RateCache {
     private let store: RateStore
     
     public init(store: RateStore) {
