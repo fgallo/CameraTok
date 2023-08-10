@@ -15,6 +15,7 @@ struct CameraTokAppApp: App {
                 GalleryUIComposer.galleryComposedWith(
                     videoGalleryLoader: makeVidelGalleryLoader(),
                     imageDataLoader: makeThumbnailDataLoader(),
+                    rateCache: makeRateCache(),
                     selection: { feed in
                         navigationPath.append(feed)
                     }

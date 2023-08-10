@@ -8,13 +8,16 @@ import CameraTok
 class GalleryCellViewModel<Image>: ObservableObject {
     private let model: VideoItem
     private let imageLoader: ThumbnailDataLoader
+    private let rateCache: RateCache
     private let imageTransformer: (Data) -> Image?
     
     @Published var state: State = .loading
+    @Published var rateState: RateState = .undefined
     
-    init(model: VideoItem, imageLoader: ThumbnailDataLoader, imageTransformer: @escaping (Data) -> Image?) {
+    init(model: VideoItem, imageLoader: ThumbnailDataLoader, rateCache: RateCache, imageTransformer: @escaping (Data) -> Image?) {
         self.model = model
         self.imageLoader = imageLoader
+        self.rateCache = rateCache
         self.imageTransformer = imageTransformer
     }
     
@@ -34,6 +37,28 @@ class GalleryCellViewModel<Image>: ObservableObject {
             }
         }
     }
+    
+    func loadRate() {
+        rateCache.load(model.id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(item):
+                DispatchQueue.main.async {
+                    guard let item = item else {
+                        self.rateState = .undefined
+                        return
+                    }
+                    
+                    self.rateState = self.rateToRateState(item.rate)
+                }
+                
+            case .failure:
+                DispatchQueue.main.async {
+                    self.rateState = .undefined
+                }
+            }
+        }
+    }
 }
 
 extension GalleryCellViewModel {
@@ -41,5 +66,23 @@ extension GalleryCellViewModel {
         case loading
         case loaded(_ image: Image, _ duration: String)
         case error
+    }
+}
+
+extension GalleryCellViewModel {
+    enum RateState {
+        case liked
+        case disliked
+        case undefined
+    }
+    
+    private func rateToRateState(_ rate: Rate) -> RateState {
+        switch rate {
+        case .like:
+            return .liked
+            
+        case .dislike:
+            return .disliked
+        }
     }
 }

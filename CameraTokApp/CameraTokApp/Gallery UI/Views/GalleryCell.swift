@@ -11,17 +11,20 @@ struct GalleryContainerCell: View {
     var body: some View {
         GalleryCell(
             state: viewModel.state,
+            rateState: viewModel.rateState,
             size: size,
             onRetry: { viewModel.loadImageData(size: size) }
         )
         .onAppear {
             viewModel.loadImageData(size: size)
+            viewModel.loadRate()
         }
     }
 }
 
 struct GalleryCell: View {
     var state: GalleryCellViewModel<UIImage>.State
+    var rateState: GalleryCellViewModel<UIImage>.RateState
     let size: CGSize
     var onRetry: () -> Void
     
@@ -35,13 +38,19 @@ struct GalleryCell: View {
                     .resizable()
                     .scaledToFill()
                     .overlay(Color.black.opacity(0.1))
-                    .overlay(
-                        Text(duration)
-                            .font(.footnote)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.white)
-                            .padding(4)
-                    )
+                    .overlay {
+                        ZStack {
+                            if rateState != .undefined {
+                                Image(systemName: rateState == .disliked ? "hand.thumbsdown.fill" : "hand.thumbsup.fill")
+                                    .padding(.bottom, 38)
+                            }
+                            
+                            Text(duration)
+                        }
+                        .font(.footnote)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                    }
             case .error:
                 Button {
                     onRetry()
@@ -58,6 +67,6 @@ struct GalleryCell: View {
 
 struct GalleryCell_Previews: PreviewProvider {
     static var previews: some View {
-        GalleryCell(state: .loading, size: CGSize(width: 100, height: 200), onRetry: {})
+        GalleryCell(state: .loading, rateState: .liked, size: CGSize(width: 100, height: 200), onRetry: {})
     }
 }

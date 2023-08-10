@@ -10,6 +10,7 @@ public final class GalleryUIComposer {
     
     static func galleryComposedWith(videoGalleryLoader: VideoGalleryLoader,
                                     imageDataLoader: ThumbnailDataLoader,
+                                    rateCache: RateCache,
                                     selection: @escaping (Feed) -> Void) -> GalleryContainerView {
         
         let videoGalleryViewModel = GalleryViewModel(
@@ -18,7 +19,8 @@ public final class GalleryUIComposer {
         
         let videoGalleryView = GalleryContainerView(
             viewModel: videoGalleryViewModel,
-            makeVideoGalleryCell: adaptModelToCell(videoGalleryViewModel: videoGalleryViewModel, imageLoader: imageDataLoader),
+            makeVideoGalleryCell: adaptModelToCell(videoGalleryViewModel: videoGalleryViewModel,
+                                                   imageLoader: imageDataLoader, rateCache: rateCache),
             onModelSelection: { index in
                 guard case .loaded(let items) = videoGalleryViewModel.state, index < items.count else {
                     return
@@ -31,14 +33,15 @@ public final class GalleryUIComposer {
         return videoGalleryView
     }
     
-    private static func adaptModelToCell(videoGalleryViewModel: GalleryViewModel, imageLoader: ThumbnailDataLoader) -> (Int, CGSize) -> GalleryContainerCell? {
+    private static func adaptModelToCell(videoGalleryViewModel: GalleryViewModel, imageLoader: ThumbnailDataLoader, rateCache: RateCache) -> (Int, CGSize) -> GalleryContainerCell? {
         return { index, size in
             guard case .loaded(let items) = videoGalleryViewModel.state, index < items.count else {
                 return nil
             }
             
             let model = items[index]
-            let videoGalleryCellViewModel = GalleryCellViewModel(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init)
+            let videoGalleryCellViewModel = GalleryCellViewModel(model: model, imageLoader: imageLoader,
+                                                                 rateCache: rateCache, imageTransformer: UIImage.init)
             return GalleryContainerCell(viewModel: videoGalleryCellViewModel, size: size)
         }
     }
