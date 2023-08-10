@@ -6,7 +6,7 @@ import XCTest
 import Photos
 @testable import CameraTok
 
-final class PhotoKitVideoGalleryLoaderTests: XCTestCase {
+final class LocalVideoGalleryLoaderTests: XCTestCase {
     
     func test_init_doesNotPerformAnyFetchRequest() {
         let (_, library) = makeSUT()
@@ -86,7 +86,7 @@ final class PhotoKitVideoGalleryLoaderTests: XCTestCase {
     
     private func makeVideoItem() -> VideoItem {
         let asset = PHAsset()
-        return VideoItem(id: asset.localIdentifier, duration: 0, liked: false)
+        return VideoItem(id: asset.localIdentifier, duration: 0, creationDate: Date())
     }
     
     private func anyDate() -> Date {
