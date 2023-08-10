@@ -77,8 +77,6 @@ struct FeedCell: View {
                     } label: {
                         Image(systemName: rateState == .disliked ? "hand.thumbsdown.fill" : "hand.thumbsdown")
                     }
-                    
-                    
                 }
                 .font(.system(size: 30))
                 .fontWeight(.bold)
