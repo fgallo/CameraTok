@@ -11,7 +11,9 @@ struct FeedContainerCell: View {
     var body: some View {
         FeedCell(
             state: viewModel.state,
-            onRetry: { viewModel.loadVideoData() }
+            onRetry: { viewModel.loadVideoData() },
+            onLike: { viewModel.like() },
+            onDislike: { viewModel.dislike() }
         )
         .onAppear {
             viewModel.loadVideoData()
@@ -26,6 +28,8 @@ struct FeedCell: View {
     
     var state: FeedCellViewModel.State
     var onRetry: () -> Void
+    var onLike: () -> Void
+    var onDislike: () -> Void
     
     var body: some View {
         switch state {
@@ -41,6 +45,36 @@ struct FeedCell: View {
                     .foregroundColor(Color.white)
             }
         }
+    }
+    
+    var rateView: some View {
+        VStack {
+            HStack {
+                Spacer()
+                VStack {
+                    Spacer()
+                    
+                    Button {
+                        onLike()
+                    } label: {
+                        Image(systemName: "hand.thumbsup")
+                    }
+                    .padding(.bottom)
+                    
+                    Button {
+                        onDislike()
+                    } label: {
+                        Image(systemName: "hand.thumbsdown")
+                    }
+                    
+                    
+                }
+                .font(.system(size: 30))
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+            }
+        }
+        
     }
     
     func videoPlayer(url: URL) -> some View {
@@ -59,9 +93,11 @@ struct FeedCell: View {
             .onTapGesture {
                 player.rate == .zero ? player.play() : player.pause()
             }
-
+            
             VStack {
                 Spacer()
+                
+                rateView
                 
                 VideoPlayerControlsView(
                     videoPos: $videoPos,
@@ -77,6 +113,11 @@ struct FeedCell: View {
 
 struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
-        FeedCell(state: .loading, onRetry: {})
+        FeedCell(
+            state: .loading,
+            onRetry: {},
+            onLike: {},
+            onDislike: {}
+        )
     }
 }

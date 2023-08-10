@@ -22,7 +22,8 @@ struct CameraTokAppApp: App {
                 .navigationDestination(for: Feed.self) { feed in
                     FeedUIComposer.feedComposedWith(
                         feed: feed,
-                        videoLoader: makeVideoDataLoader()
+                        videoLoader: makeVideoDataLoader(),
+                        rateAction: makeRateAction()
                     )
                 }
             }
@@ -46,5 +47,11 @@ extension CameraTokAppApp {
         let videoLibrary = PhotoKitVideoLibrary()
         let videoDataLibrary = PhotoKitVideoDataLibrary()
         return LocalVideoDataLoader(videoLibrary: videoLibrary, videoDataLibrary: videoDataLibrary)
+    }
+    
+    func makeRateAction() -> VideoRateAction {
+        let storeURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("rate.store")
+        let store = CodableRateStore(storeURL: storeURL)
+        return LocalLikeLoader(store: store)
     }
 }
