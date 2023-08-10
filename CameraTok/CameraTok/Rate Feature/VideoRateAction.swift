@@ -4,15 +4,15 @@
 
 import Foundation
 
-enum Rate {
+public enum Rate: Codable {
     case like
     case dislike
 }
 
-protocol VideoRateAction {
+public protocol VideoRateAction {
     typealias SaveResult = Error?
-    typealias LoadResult = Swift.Result<[String], Error>
+    typealias LoadResult = Swift.Result<[RateItem], Error>
     
-    func saveVideoRate(videoId: String, rate: Rate, completion: @escaping (SaveResult) -> Void)
-    func loadAllVideoRates(completion: @escaping (LoadResult) -> Void)
+    func save(_ videoRate: RateItem, completion: @escaping (SaveResult) -> Void)
+    func load(completion: @escaping (LoadResult) -> Void)
 }
