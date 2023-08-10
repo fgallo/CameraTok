@@ -1,10 +1,11 @@
 # CameraTok
 
 ## Instructions
-1. Clone the repository
+1. Clone or download the repository
 2. Open the file /CameraTokApp/CameraTokApp.xcworkspace
 3. Select CameraTokApp scheme and run on simulator or device
 4. To execute the tests select the CameraTok scheme and run it on any iOS target
+5. Make sure to allow photos access
 
 ## Thinking process
 - I aimed to adhere to SOLID principles and maintain a clean architecture throughout the project;
