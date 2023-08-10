@@ -24,8 +24,11 @@ public final class PhotoKitVideoDataLibrary: VideoDataLibrary {
     }
     
     public func getVideoURLFromAsset(_ asset: PHAsset, completion: @escaping (URL?) -> Void) {
+        let options = PHVideoRequestOptions()
+        options.isNetworkAccessAllowed = true
+
         let imageManager = PHCachingImageManager()
-        imageManager.requestAVAsset(forVideo: asset, options: nil) { avAsset, audioMix, info in
+        imageManager.requestAVAsset(forVideo: asset, options: options) { avAsset, audioMix, info in
             let url = (avAsset as? AVURLAsset)?.url
             completion(url)
         }
